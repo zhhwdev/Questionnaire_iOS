@@ -7,7 +7,8 @@
 //
 
 #import "ExplorerTableViewController.h"
-
+#import "InfoTableViewController.h"
+#import "UseViewController.h"
 @interface ExplorerTableViewController ()
 
 @end
@@ -18,6 +19,7 @@
     [super viewDidLoad];
     NSLog(@"%s",__PRETTY_FUNCTION__);
     self.title = @"問券總覽";
+    [self setNavigationBarItem];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,6 +31,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - NavigationBar items setting
+-(void) setNavigationBarItem
+{
+    UIBarButtonItem *AddItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(AddItemClicked)];
+    self.navigationItem.rightBarButtonItem = AddItem;
+}
+
+-(void) AddItemClicked
+{
+    NSLog(@"AddItemClicked");
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    InfoTableViewController* InfoVC = [sb instantiateViewControllerWithIdentifier:@"NewQuestionViewController"];
+    [self presentViewController:InfoVC animated:YES completion:nil];
+}
+
 
 #pragma mark - Table view data source
 
@@ -42,6 +62,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *simpleTableIdentifier = @"cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -50,24 +71,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = @"test";
+    cell.textLabel.text = @"這是問券";
     [cell.textLabel setFont:[UIFont systemFontOfSize:60]];
-    //cell.imageView.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     
-    return cell;
-    /*
-    static NSString *simpleTableIdentifier = EXPLORER_REUSE_ID;
-    
-    ExplorerTableViewCell *cell = (ExplorerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:EXPLORER_REUSE_ID owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    cell.nameLab.text = @"TEST";
-    [cell.InfoBtn addTarget:self action:@selector(infoBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-     */
     return cell;
 
 }
@@ -79,7 +85,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return EXPLORER_HEIGHT;
+    return 150;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSLog(@"AddItemClicked");
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    UseViewController* UseVC = [sb instantiateViewControllerWithIdentifier:@"UseViewController"];
+    [self presentViewController:UseVC animated:YES completion:nil];
+
 }
 
 

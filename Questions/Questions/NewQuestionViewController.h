@@ -1,5 +1,5 @@
 //
-//  UseTableViewController.h
+//  NewQuestionViewController.h
 //  Questions
 //
 //  Created by CHIN-KANG CHANG on 4/12/15.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UseTableViewController : UITableViewController
+@interface NewQuestionViewController : UIViewController
+- (IBAction)CompleteBtn:(id)sender;
 
 @end

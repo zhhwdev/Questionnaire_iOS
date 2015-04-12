@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ExplorerTableViewCell.h"
-
 @interface ExplorerTableViewController : UITableViewController
 
 @end
