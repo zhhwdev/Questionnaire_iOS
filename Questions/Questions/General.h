@@ -10,4 +10,5 @@
 
 #define UI_STATUS_BAR_HIDE_ANIMATION_DELAY 0.2f
 #define NOTIFICATION_KEY                    @"NOTIFICATION_KEY"
+#define MAIN_COLOR  [UIColor colorWithRed:(0.0f/255) green:(160.0f/255) blue:(233.0f/255) alpha:1]
 

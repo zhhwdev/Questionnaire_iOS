@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "JSONFileManager.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //[self CoreDataTest_newQuestionnaire];
+    //[self CoreDataTestFetch];
+    
+    NSLog(@"Dic question count = %d", [[[[JSONFileManager JSON_ReadJSONFileWithFileName:@"test"] valueForKey:@"questions"] allKeys] count]);
+    NSLog(@"Dic answer count = %d", [[[[[JSONFileManager JSON_ReadJSONFileWithFileName:@"test"] valueForKey:@"questions"] valueForKey:@"1"] allKeys] count] - 2);
+    
     return YES;
 }
 
@@ -49,6 +57,55 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+
+-(void)CoreDataTest_newQuestionnaire
+{
+    // Create Person
+    NSEntityDescription *entityQuestionnaire = [NSEntityDescription entityForName:@"Questionnaire" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *newQuestionnaire = [[NSManagedObject alloc] initWithEntity:entityQuestionnaire insertIntoManagedObjectContext:self.managedObjectContext];
+    // Set First and Lats Name
+    [newQuestionnaire setValue:@"123456789" forKey:@"guid"];
+    
+    
+    // Create Person
+    NSEntityDescription *entityQuestion = [NSEntityDescription entityForName:@"Questions" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *newQuestion = [[NSManagedObject alloc] initWithEntity:entityQuestion insertIntoManagedObjectContext:self.managedObjectContext];
+    // Set First and Lats Name
+    [newQuestion setValue:@1 forKey:@"index"];
+    [newQuestion setValue:@"this is question" forKey:@"question"];
+    [newQuestion setValue:@"this is answer1" forKey:@"answer1"];
+    [newQuestion setValue:@"this is answer2" forKey:@"answer2"];
+    [newQuestion setValue:@"this is answer3" forKey:@"answer3"];
+    [newQuestion setValue:@"this is answer4" forKey:@"answer4"];
+
+    // Add Address to Person
+    [newQuestionnaire setValue:newQuestion forKey:@"questions"];
+    
+    // Save Managed Object Context
+    NSError *error = nil;
+    if (![newQuestionnaire.managedObjectContext save:&error]) {
+        NSLog(@"Unable to save managed object context.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }
+
+}
+
+-(void)CoreDataTestFetch
+{
+    NSMutableArray *CoreDataArray = [[NSMutableArray alloc] init];
+    NSString *CoreDataEntityName;
+    CoreDataEntityName = @"Questionnaire";
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:CoreDataEntityName];
+    CoreDataArray = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    //NSLog(@"CoreDataArray = %@", CoreDataArray);
+    NSLog(@"questions : %@", [[[CoreDataArray firstObject] valueForKey:@"questions"] valueForKey:@"question"]);
+    //return CoreDataArray;
+
+}
+
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "com.HippoColors.Questions" in the application's documents directory.

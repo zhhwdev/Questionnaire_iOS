@@ -9,6 +9,8 @@
 #import "ExplorerViewController.h"
 #import "UseViewController.h"
 #import "InfoTableViewController.h"
+#import <CoreData/CoreData.h>
+
 
 #define CONTROLVIEW_HEIGHT 300.0f
 
@@ -20,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setBackgroundColor:MAIN_COLOR];
     [self init_ControlView];
     [self init_TableView];
     self.navigationController.delegate = self;
@@ -35,19 +37,20 @@
 -(void)init_TableView
 {
     _TableView =[[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                              0,
+                                                              CONTROLVIEW_HEIGHT,
                                                               self.view.frame.size.width,
                                                               self.view.frame.size.height - CONTROLVIEW_HEIGHT)];
     _TableView.dataSource = self;
     _TableView.delegate = self;
-
+    [_TableView setBackgroundColor:[UIColor clearColor]];
+    
     [self.view addSubview:_TableView];
 }
 
 -(void)init_ControlView
 {
     _ControlView = [[MainControlView alloc] initWithFrame:CGRectMake(0,
-                                                                     self.view.frame.size.height - CONTROLVIEW_HEIGHT,
+                                                                     0,
                                                                      self.view.frame.size.width,
                                                                      CONTROLVIEW_HEIGHT)];
     [_ControlView.AddBtn addTarget:self action:@selector(AddBtnClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -74,10 +77,14 @@
 }
 
 
-
+/*
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+}
+*/
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -99,8 +106,9 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.QuestionTitleLab.text = @"這是問券";
+    cell.QuestionTitleLab.text = @"Questionnaire";
     [cell.GotoInfoBtn addTarget:self action:@selector(infoBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
@@ -118,6 +126,7 @@
                                                   bundle:nil];
     UseViewController* UseVC = [sb instantiateViewControllerWithIdentifier:@"UseViewController"];
     [self presentViewController:UseVC animated:YES completion:nil];
+    [_TableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 

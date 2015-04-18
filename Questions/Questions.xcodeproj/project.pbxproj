@@ -14,6 +14,9 @@
 		10D97C201AD7CD720002D04E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D97C1F1AD7CD720002D04E /* Images.xcassets */; };
 		10D97C231AD7CD720002D04E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D97C211AD7CD720002D04E /* LaunchScreen.xib */; };
 		10D97C2F1AD7CD730002D04E /* QuestionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D97C2E1AD7CD730002D04E /* QuestionsTests.m */; };
+		10F0467B1AE1DA9D002DAC01 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 10F0467A1AE1DA9D002DAC01 /* test.json */; };
+		10F0467E1AE1DAB6002DAC01 /* JSONFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */; };
+		10F046811AE1EC3B002DAC01 /* Questionnaire.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F046801AE1EC3B002DAC01 /* Questionnaire.m */; };
 		10FC81F31AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FC81F21AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png */; };
 		10FC81F61AD99BC000F8B841 /* InfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FC81F51AD99BC000F8B841 /* InfoTableViewController.m */; };
 		10FC81FF1ADAC69C00F8B841 /* NewQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FC81FE1ADAC69C00F8B841 /* NewQuestionViewController.m */; };
@@ -49,6 +52,11 @@
 		10D97C281AD7CD730002D04E /* QuestionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuestionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D97C2D1AD7CD730002D04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10D97C2E1AD7CD730002D04E /* QuestionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionsTests.m; sourceTree = "<group>"; };
+		10F0467A1AE1DA9D002DAC01 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		10F0467C1AE1DAB6002DAC01 /* JSONFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONFileManager.h; sourceTree = "<group>"; };
+		10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONFileManager.m; sourceTree = "<group>"; };
+		10F0467F1AE1EC3B002DAC01 /* Questionnaire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Questionnaire.h; sourceTree = "<group>"; };
+		10F046801AE1EC3B002DAC01 /* Questionnaire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Questionnaire.m; sourceTree = "<group>"; };
 		10FC81F21AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-arrow-forward-128.png"; sourceTree = "<group>"; };
 		10FC81F41AD99BC000F8B841 /* InfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewController.h; sourceTree = "<group>"; };
 		10FC81F51AD99BC000F8B841 /* InfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewController.m; sourceTree = "<group>"; };
@@ -108,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				10FC82351ADBCC7700F8B841 /* General.h */,
+				10F0467A1AE1DA9D002DAC01 /* test.json */,
+				10F0467C1AE1DAB6002DAC01 /* JSONFileManager.h */,
+				10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */,
 				10FC81F21AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png */,
 				10D97C131AD7CD720002D04E /* AppDelegate.h */,
 				10D97C141AD7CD720002D04E /* AppDelegate.m */,
@@ -131,6 +142,8 @@
 				10FC82321ADBCBCF00F8B841 /* download.png */,
 				10FC822E1ADBAAAC00F8B841 /* MainControlView.h */,
 				10FC822F1ADBAAAC00F8B841 /* MainControlView.m */,
+				10F0467F1AE1EC3B002DAC01 /* Questionnaire.h */,
+				10F046801AE1EC3B002DAC01 /* Questionnaire.m */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -242,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10FC81F31AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png in Resources */,
+				10F0467B1AE1DA9D002DAC01 /* test.json in Resources */,
 				10FC82231ADBA62400F8B841 /* TableViewCell.xib in Resources */,
 				10D97C1E1AD7CD720002D04E /* Main.storyboard in Resources */,
 				10D97C231AD7CD720002D04E /* LaunchScreen.xib in Resources */,
@@ -266,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10D97C181AD7CD720002D04E /* Questions.xcdatamodeld in Sources */,
+				10F0467E1AE1DAB6002DAC01 /* JSONFileManager.m in Sources */,
 				10D97C151AD7CD720002D04E /* AppDelegate.m in Sources */,
 				10FC82301ADBAAAC00F8B841 /* MainControlView.m in Sources */,
 				10D97C121AD7CD720002D04E /* main.m in Sources */,
@@ -274,6 +289,7 @@
 				10FC82261ADBA81F00F8B841 /* TableViewCell.m in Sources */,
 				10FC81FF1ADAC69C00F8B841 /* NewQuestionViewController.m in Sources */,
 				10FC81F61AD99BC000F8B841 /* InfoTableViewController.m in Sources */,
+				10F046811AE1EC3B002DAC01 /* Questionnaire.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

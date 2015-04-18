@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Questionnaire" syncable="YES">
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questions" inverseName="questionnaire" inverseEntity="Questions" syncable="YES"/>
+    </entity>
+    <entity name="Questions" syncable="YES">
+        <attribute name="answer1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answer2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answer3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answer4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questionnaire" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questionnaire" inverseName="questions" inverseEntity="Questionnaire" syncable="YES"/>
+    </entity>
+    <entity name="Setting" syncable="YES"/>
+    <elements>
+        <element name="Questionnaire" positionX="-12053" positionY="1179" width="128" height="73"/>
+        <element name="Questions" positionX="-11682" positionY="1220" width="153" height="148"/>
+        <element name="Setting" positionX="-12051" positionY="1280" width="128" height="43"/>
+    </elements>
 </model>
