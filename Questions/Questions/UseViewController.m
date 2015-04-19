@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    
+    [self init_TheQuestionnaire];
     [self init_TableView];
     // Do any additional setup after loading the view.
 }
@@ -27,6 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)init_TableView
 {
     _TableView = [[UITableView alloc] initWithFrame:self.view.frame];
@@ -34,9 +35,14 @@
     _TableView.dataSource = self;
     _TableView.allowsSelection = NO;
     [_TableView setPagingEnabled:YES];
-    _TableView.scrollEnabled = YES;
+    _TableView.scrollEnabled = NO;
     
     [self.view addSubview:_TableView];
+}
+
+-(void) init_TheQuestionnaire
+{
+    _TheQuestionnaire = [[Questionnaire alloc] initWithTheQuestionnaireID:@"1234567890"];
 }
 
 /*
@@ -58,7 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return [_TheQuestionnaire GetQuestionCount];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -79,7 +85,7 @@
     [QuestionLab setTextColor:[UIColor whiteColor]];
     [cell.QuestionPartView addSubview:QuestionLab];
     */
-    cell.ContentLab.text = @"1這邊是問題區 2這邊是問題區 3這邊是問題區 4這邊是問題區 5這邊是問題區 6這邊是問題區 7這邊是問題區 8這邊是問題區 9這邊是問題區 1這邊是問題區 2這邊是問題區 3這邊是問題區 4這邊是問題區 5這邊是問題區";
+    cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:(indexPath.row + 1)];
     cell.backgroundColor = [UIColor whiteColor];
     [cell.NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell.PrevBtn addTarget:self action:@selector(PrevBtnClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -107,9 +113,14 @@
 -(void) NextBtnClicked
 {
     NSLog(@"NextBtnClicked %d", [self GetCurrentCell]);
+    if ([self GetCurrentCell] + 1 >= [_TheQuestionnaire GetQuestionCount]) {
+        NSLog(@"There is no next");
+        NSLog(@"TODO: Add personal info form");
+    } else {
+        NSIndexPath *Indexpath = [NSIndexPath indexPathForRow:([self GetCurrentCell] + 1) inSection:0];
+        [_TableView scrollToRowAtIndexPath:Indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
     
-    NSIndexPath *Indexpath = [NSIndexPath indexPathForRow:([self GetCurrentCell] + 1) inSection:0];
-    [_TableView scrollToRowAtIndexPath:Indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 

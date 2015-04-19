@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AnswerTheQuestionTableViewCell.h"
+#import "Questionnaire.h"
+#import "JSONFileManager.h"
 @interface UseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (strong, nonatomic) UITableView *TableView;
+@property (strong, nonatomic) Questionnaire *TheQuestionnaire;
+@property (strong, nonatomic) UITableView   *TableView;
 
 
 
