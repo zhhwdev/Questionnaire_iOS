@@ -13,5 +13,7 @@
                 reuseIdentifier:(NSString *)reuseIdentifier;
 @property (strong, nonatomic) IBOutlet UILabel *QuestionTitleLab;
 @property (strong, nonatomic) IBOutlet UIButton *GotoInfoBtn;
+@property (strong, nonatomic) IBOutlet UIImageView *TitleImgView;
+@property (strong, nonatomic) IBOutlet UILabel *CountLab;
 
 @end

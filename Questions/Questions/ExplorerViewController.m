@@ -12,7 +12,7 @@
 #import <CoreData/CoreData.h>
 
 
-#define CONTROLVIEW_HEIGHT 300.0f
+#define CONTROLVIEW_HEIGHT 200.0f
 
 @interface ExplorerViewController ()
 
@@ -22,9 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    
     [self.view setBackgroundColor:MAIN_COLOR];
-    [self init_ControlView];
+    
     [self init_TableView];
+    [self init_ControlView];
     self.navigationController.delegate = self;
     // Do any additional setup after loading the view.
 }
@@ -37,25 +40,25 @@
 -(void)init_TableView
 {
     _TableView =[[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                              CONTROLVIEW_HEIGHT,
+                                                              0,
                                                               self.view.frame.size.width,
-                                                              self.view.frame.size.height - CONTROLVIEW_HEIGHT)];
+                                                              self.view.frame.size.height)];
     _TableView.dataSource = self;
     _TableView.delegate = self;
-    [_TableView setBackgroundColor:[UIColor clearColor]];
-    
+    [_TableView setBackgroundColor:[UIColor whiteColor]];
+    [_TableView setSeparatorColor:[UIColor clearColor]];
     [self.view addSubview:_TableView];
 }
 
 -(void)init_ControlView
 {
     _ControlView = [[MainControlView alloc] initWithFrame:CGRectMake(0,
-                                                                     0,
+                                                                     self.view.frame.size.height - CONTROLVIEW_HEIGHT,
                                                                      self.view.frame.size.width,
                                                                      CONTROLVIEW_HEIGHT)];
     [_ControlView.AddBtn addTarget:self action:@selector(AddBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [_ControlView.DownloadBtn addTarget:self action:@selector(DownloadBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    
+    [_ControlView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper.png"]]];
     [self.view addSubview:_ControlView];
 }
 
@@ -77,12 +80,12 @@
 }
 
 
-/*
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
 }
-*/
+
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -106,7 +109,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.QuestionTitleLab.text = @"Questionnaire";
+    cell.QuestionTitleLab.text = @"淡江大學人際關係訪問表";
     [cell.GotoInfoBtn addTarget:self action:@selector(infoBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     cell.backgroundColor = [UIColor whiteColor];
     return cell;

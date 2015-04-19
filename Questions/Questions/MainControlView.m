@@ -7,6 +7,7 @@
 //
 
 #import "MainControlView.h"
+#import "General.h"
 
 @implementation MainControlView
 -(MainControlView*)initWithFrame:(CGRect)frame
@@ -31,7 +32,7 @@
     UIImage *image = [[UIImage imageNamed:@"add.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 
     [_AddBtn setImage:image forState:UIControlStateNormal];
-    _AddBtn.imageView.tintColor = [UIColor whiteColor];
+    _AddBtn.imageView.tintColor = MAIN_COLOR;
     [_AddBtn setCenter:CGPointMake(self.frame.size.width / 4, self.frame.size.height / 2)];
     NSLog(@"_AddBtn = %@", _AddBtn);
     [self addSubview:_AddBtn];
@@ -50,7 +51,7 @@
 
     [_DownloadBtn setImage:image forState:UIControlStateNormal];
     [_DownloadBtn setCenter:CGPointMake((self.frame.size.width / 4) * 3, self.frame.size.height / 2)];
-    _DownloadBtn.imageView.tintColor = [UIColor whiteColor];
+    _DownloadBtn.imageView.tintColor = MAIN_COLOR;
     [self addSubview:_DownloadBtn];
 }
 

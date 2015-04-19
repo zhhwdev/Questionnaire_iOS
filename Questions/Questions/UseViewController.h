@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerTheQuestionTableViewCell.h"
+@interface UseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@interface UseViewController : UIViewController
-- (IBAction)CompleteBtn:(id)sender;
+@property (strong, nonatomic) UITableView *TableView;
+
+
 
 @end

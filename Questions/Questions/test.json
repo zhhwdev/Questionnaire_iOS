@@ -1,50 +1,74 @@
 {
-  "guid": "1234567890",
-  "questions":{
-    "1":
-    {
-     "index": 1,
-     "question":"This is question",
-     "answer1":"This is answer1",
-     "answer2":"This is answer2",
-     "answer3":"This is answer3", 
-     "answer4":"This is answer4"      
-    },
-    "2":
-    {
-     "index": 2,
-     "question":"This is question",
-     "answer1":"This is answer1",
-     "answer2":"This is answer2",
-     "answer3":"This is answer3", 
-     "answer4":"This is answer4" 
-    },
-    "3":
-    {
-     "index": 3,
-     "question":"This is question",
-     "answer1":"This is answer1",
-     "answer2":"This is answer2",
-     "answer3":"This is answer3", 
-     "answer4":"This is answer4" 
-    },
-    "4":
-    {
-     "index": 4,
-     "question":"This is question",
-     "answer1":"This is answer1",
-     "answer2":"This is answer2",
-     "answer3":"This is answer3", 
-     "answer4":"This is answer4" 
-    },
-    "5":
-    {
-     "index": 5,
-     "question":"This is question",
-     "answer1":"This is answer1",
-     "answer2":"This is answer2",
-     "answer3":"This is answer3", 
-     "answer4":"This is answer4" 
+    "guid": "1234567890",
+    "questionarieName":"淡江大學人際關係訪問表",
+    "questions":{
+        "1":
+        {
+            "index": 1,
+            "type":2,
+            "question":"請問你覺得上大學後你的人際關係如何？(和國、高中比較)",
+            "answer1":"變好喔！",
+            "answer2":"變差了",
+            "answer3":"嗯，差不多"
+        },
+        "2":
+        {
+            "index": 2,
+            "type":2,
+            "question":"目前為止，你在大學裡交到幾個朋友呢？(叫得出真名的) ",
+            "answer1":"3個以下",
+            "answer2":"5-10位",
+            "answer3":"10-15位",
+            "answer4":"15-20位",
+            "answer5":"20位以上"
+        },
+        "3":
+        {
+            "index": 3,
+            "type":2,
+            "question":"想問一下你目前有交男/女朋友嗎？",
+            "answer1":"有",
+            "answer2":"無",
+            "answer3":"其他",
+            "answer3_comment":"default"
+        },
+        "4":
+        {
+            "index": 4,
+            "type":2,
+            "question":"承第3題，若無，你會想要交男女朋友嗎？",
+            "answer1":"會",
+            "answer2":"不會"
+        },
+        "5":
+        {
+            "index": 5,
+            "type":1,
+            "question":"上大學後有交到幾個知心、無話不談的好友呢？",
+            "answer":"default"
+        },
+        "6":
+        {
+            "index": 5,
+            "type":2,
+            "question":"若耶穌想要當你的朋友，你會好奇想聽聽看嗎？",
+            "answer1":"會",
+            "answer2":"不會"
+        },
+        "7":
+        {
+            "index": 5,
+            "type":2,     
+            "question":"「學園團契社」是個充滿愛並且對生命有熱情來培養領袖的環境？",
+            "answer1":"很好奇想多了解，可以主動聯繫我",
+            "answer2":"謝謝，不用了"
+        },
+        "Person":{
+            "Name":"default",
+            "Mobile":"default",      
+            "Gender":0,
+            "Majer":"default",
+            "Class":0
+        }
     }
-  }
 }

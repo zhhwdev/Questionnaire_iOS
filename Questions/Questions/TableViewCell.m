@@ -18,6 +18,8 @@
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         [self setBackgroundColor:[UIColor clearColor]];
+        _QuestionTitleLab.lineBreakMode = NSLineBreakByClipping;
+        _QuestionTitleLab.numberOfLines = 2;
     }
     return self;
 }
