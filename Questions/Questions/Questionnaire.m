@@ -53,14 +53,40 @@
     return [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] count] - 3; // minus index, question and type
 }
 
-/* TODO:
+
 -(NSArray*) GetAnswersArrayWithIndex : (NSInteger) index
 {
     NSInteger answerCount = [self GetAnswerCountWithIndex:index];
     NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
     
-    return [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] count] - 3; // minus index, question and type
+    NSMutableArray *AnswerArray = [[NSMutableArray alloc] init];
+    for (NSInteger Count = 0; Count < answerCount; Count++) {
+        NSString *AnswerKey = [NSString stringWithFormat:@"answer%d", (Count + 1)];
+        NSLog(@"%@ %@",AnswerKey, [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:AnswerKey]);
+        [AnswerArray addObject:[[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:AnswerKey]];
+    }
+    
+    return AnswerArray; // minus index, question and type
 }
-*/
+
+
+-(NSArray*) GetCommentIndicesWithIndex : (NSInteger) index
+{
+    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
+    NSDictionary *QuestionDic = [[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey];
+    NSArray *AllKeyArray = [QuestionDic allKeys];
+    NSMutableArray *Comments = [[NSMutableArray alloc] init];
+    
+    for (NSInteger Count = 0; Count < [AllKeyArray count]; Count++) {
+        
+        NSString *KeyString = [AllKeyArray objectAtIndex:Count];
+        if ([[AllKeyArray objectAtIndex:Count] rangeOfString:@"comment"].length != 0) {
+            [Comments addObject:[KeyString substringFromIndex:[@"comment" length]]];
+            NSLog(@"[KeyString substringFromIndex:[KeyString length]] = %@", [KeyString substringFromIndex:[@"comment" length]]);
+        }
+    }
+    
+    return Comments;
+}
 
 @end

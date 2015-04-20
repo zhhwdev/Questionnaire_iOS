@@ -25,12 +25,12 @@
         "3":
         {
             "index": 3,
-            "type":2,
+            "type":3,
             "question":"想問一下你目前有交男/女朋友嗎？",
             "answer1":"有",
             "answer2":"無",
             "answer3":"其他",
-            "answer3_comment":"default"
+            "comment3":"default"
         },
         "4":
         {
@@ -45,7 +45,6 @@
             "index": 5,
             "type":1,
             "question":"上大學後有交到幾個知心、無話不談的好友呢？",
-            "answer":"default"
         },
         "6":
         {

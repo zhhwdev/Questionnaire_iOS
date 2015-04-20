@@ -121,9 +121,23 @@
     NSLog(@"QuestionType = %d", QuestionType);
     switch (QuestionType) {
         case QUESTION_TYPE_ASK_ANSWER:
+            
             break;
         case QUESTION_TYPE_CHOOSE_ANSWER:
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
+            CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
+            [CurrentCell.AnswersTableView  reloadData];
+            break;
+        case QUESTION_TYPE_MIX:
+        {
+            //NSInteger CommentsCount = [[_TheQuestionnaire GetCommentIndicesWithIndex:index] count];
+            // TODO: To handle multiple comments
+            NSInteger CommentsIndex = [[[_TheQuestionnaire GetCommentIndicesWithIndex:index] objectAtIndex:0] integerValue] - 1;
+            NSLog(@"CommentsIndex = %d", CommentsIndex);
+            
+        }
+        
+            
             break;
         default:
             break;
@@ -140,7 +154,7 @@
 
 -(void) NextBtnClicked
 {
-    NSLog(@"NextBtnClicked %d", [self GetCurrentCell]);
+    //NSLog(@"NextBtnClicked %d", [self GetCurrentCell]);
     if ([self GetCurrentCell] + 1 >= [_TheQuestionnaire GetQuestionCount]) {
         NSLog(@"There is no next");
         NSLog(@"!! TODO: Add personal info form");

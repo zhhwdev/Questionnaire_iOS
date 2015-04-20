@@ -11,6 +11,8 @@
 		10B8CE2B1AE3EE84004B6291 /* ok2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10B8CE2A1AE3EE84004B6291 /* ok2.png */; };
 		10B8CE321AE3F81B004B6291 /* AnswersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B8CE301AE3F81B004B6291 /* AnswersTableViewCell.m */; };
 		10B8CE331AE3F81B004B6291 /* AnswersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10B8CE311AE3F81B004B6291 /* AnswersTableViewCell.xib */; };
+		10D633CC1AE4A3B2008B83B7 /* close32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D633CA1AE4A3B2008B83B7 /* close32@2x.png */; };
+		10D633CD1AE4A3B2008B83B7 /* close32@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D633CB1AE4A3B2008B83B7 /* close32@3x.png */; };
 		10D97C121AD7CD720002D04E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D97C111AD7CD720002D04E /* main.m */; };
 		10D97C151AD7CD720002D04E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D97C141AD7CD720002D04E /* AppDelegate.m */; };
 		10D97C181AD7CD720002D04E /* Questions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10D97C161AD7CD720002D04E /* Questions.xcdatamodeld */; };
@@ -55,6 +57,8 @@
 		10B8CE2F1AE3F81B004B6291 /* AnswersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswersTableViewCell.h; sourceTree = "<group>"; };
 		10B8CE301AE3F81B004B6291 /* AnswersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswersTableViewCell.m; sourceTree = "<group>"; };
 		10B8CE311AE3F81B004B6291 /* AnswersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswersTableViewCell.xib; sourceTree = "<group>"; };
+		10D633CA1AE4A3B2008B83B7 /* close32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close32@2x.png"; sourceTree = "<group>"; };
+		10D633CB1AE4A3B2008B83B7 /* close32@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close32@3x.png"; sourceTree = "<group>"; };
 		10D97C0C1AD7CD720002D04E /* Questions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D97C101AD7CD720002D04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10D97C111AD7CD720002D04E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				10DDAC4C1AE2B1E900E9B5EB /* mode.png */,
 				10B8CE2A1AE3EE84004B6291 /* ok2.png */,
 				10B8CE281AE3EE7D004B6291 /* close32.png */,
+				10D633CA1AE4A3B2008B83B7 /* close32@2x.png */,
+				10D633CB1AE4A3B2008B83B7 /* close32@3x.png */,
 				10DDAC4A1AE2B1DF00E9B5EB /* approve9.png */,
 				10FC82311ADBCBCF00F8B841 /* add.png */,
 				10FC82321ADBCBCF00F8B841 /* download.png */,
@@ -167,8 +173,6 @@
 				10FC81F51AD99BC000F8B841 /* InfoTableViewController.m */,
 				10FC81FD1ADAC69C00F8B841 /* NewQuestionViewController.h */,
 				10FC81FE1ADAC69C00F8B841 /* NewQuestionViewController.m */,
-				10FC82001ADAD0F900F8B841 /* UseViewController.h */,
-				10FC82011ADAD0F900F8B841 /* UseViewController.m */,
 				10FC821C1ADB6F8100F8B841 /* ExplorerViewController.h */,
 				10FC821D1ADB6F8100F8B841 /* ExplorerViewController.m */,
 				10FC82211ADBA62400F8B841 /* TableViewCell.xib */,
@@ -178,6 +182,8 @@
 				10FC822F1ADBAAAC00F8B841 /* MainControlView.m */,
 				10F0467F1AE1EC3B002DAC01 /* Questionnaire.h */,
 				10F046801AE1EC3B002DAC01 /* Questionnaire.m */,
+				10FC82001ADAD0F900F8B841 /* UseViewController.h */,
+				10FC82011ADAD0F900F8B841 /* UseViewController.m */,
 				10DDAC451AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.h */,
 				10DDAC461AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.m */,
 				10DDAC471AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.xib */,
@@ -305,9 +311,11 @@
 				10D97C1E1AD7CD720002D04E /* Main.storyboard in Resources */,
 				10D97C231AD7CD720002D04E /* LaunchScreen.xib in Resources */,
 				10DDAC411AE2605A00E9B5EB /* ASK.png in Resources */,
+				10D633CD1AE4A3B2008B83B7 /* close32@3x.png in Resources */,
 				10FC82341ADBCBCF00F8B841 /* download.png in Resources */,
 				10DDAC3D1AE25BB000E9B5EB /* paper.png in Resources */,
 				10D97C201AD7CD720002D04E /* Images.xcassets in Resources */,
+				10D633CC1AE4A3B2008B83B7 /* close32@2x.png in Resources */,
 				10DDAC4B1AE2B1DF00E9B5EB /* approve9.png in Resources */,
 				10FC82331ADBCBCF00F8B841 /* add.png in Resources */,
 				10DDAC491AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.xib in Resources */,
