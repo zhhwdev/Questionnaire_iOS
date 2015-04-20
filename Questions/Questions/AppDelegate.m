@@ -21,10 +21,6 @@
     // Override point for customization after application launch.
     //[self CoreDataTest_newQuestionnaire];
     //[self CoreDataTestFetch];
-    
-    NSLog(@"Dic question count = %d", [[[[JSONFileManager JSON_ReadJSONFileWithFileName:@"test"] valueForKey:@"questions"] allKeys] count]);
-    NSLog(@"Dic answer count = %d", [[[[[JSONFileManager JSON_ReadJSONFileWithFileName:@"test"] valueForKey:@"questions"] valueForKey:@"1"] allKeys] count] - 2);
-    
     return YES;
 }
 
