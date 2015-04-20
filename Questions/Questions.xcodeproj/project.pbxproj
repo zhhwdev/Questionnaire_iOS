@@ -120,6 +120,14 @@
 			isa = PBXGroup;
 			children = (
 				10F0467A1AE1DA9D002DAC01 /* 1234567890.json */,
+				10DDAC4C1AE2B1E900E9B5EB /* mode.png */,
+				10B8CE2A1AE3EE84004B6291 /* ok2.png */,
+				10B8CE281AE3EE7D004B6291 /* close32.png */,
+				10DDAC4A1AE2B1DF00E9B5EB /* approve9.png */,
+				10FC82311ADBCBCF00F8B841 /* add.png */,
+				10FC82321ADBCBCF00F8B841 /* download.png */,
+				10DDAC401AE2605A00E9B5EB /* ASK.png */,
+				10DDAC3C1AE25BB000E9B5EB /* paper.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -145,7 +153,6 @@
 		10D97C0E1AD7CD720002D04E /* Questions */ = {
 			isa = PBXGroup;
 			children = (
-				10B8CE341AE48C4F004B6291 /* Resource */,
 				10FC82351ADBCC7700F8B841 /* General.h */,
 				10F0467C1AE1DAB6002DAC01 /* JSONFileManager.h */,
 				10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */,
@@ -167,10 +174,6 @@
 				10FC82211ADBA62400F8B841 /* TableViewCell.xib */,
 				10FC82241ADBA81F00F8B841 /* TableViewCell.h */,
 				10FC82251ADBA81F00F8B841 /* TableViewCell.m */,
-				10FC82311ADBCBCF00F8B841 /* add.png */,
-				10FC82321ADBCBCF00F8B841 /* download.png */,
-				10DDAC401AE2605A00E9B5EB /* ASK.png */,
-				10DDAC3C1AE25BB000E9B5EB /* paper.png */,
 				10FC822E1ADBAAAC00F8B841 /* MainControlView.h */,
 				10FC822F1ADBAAAC00F8B841 /* MainControlView.m */,
 				10F0467F1AE1EC3B002DAC01 /* Questionnaire.h */,
@@ -181,10 +184,7 @@
 				10B8CE2F1AE3F81B004B6291 /* AnswersTableViewCell.h */,
 				10B8CE301AE3F81B004B6291 /* AnswersTableViewCell.m */,
 				10B8CE311AE3F81B004B6291 /* AnswersTableViewCell.xib */,
-				10DDAC4C1AE2B1E900E9B5EB /* mode.png */,
-				10B8CE2A1AE3EE84004B6291 /* ok2.png */,
-				10B8CE281AE3EE7D004B6291 /* close32.png */,
-				10DDAC4A1AE2B1DF00E9B5EB /* approve9.png */,
+				10B8CE341AE48C4F004B6291 /* Resource */,
 				10D97C0F1AD7CD720002D04E /* Supporting Files */,
 			);
 			path = Questions;

@@ -91,8 +91,9 @@
     
     [cell.NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell.PrevBtn addTarget:self action:@selector(PrevBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [cell.ReturnBtn addTarget:self action:@selector(ReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell.NextBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    cell = [self setupTableviewCell:cell WithQuestionType:[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex] andQuestionIndex:QuestionIndex];
+    cell = [self setupTableviewCell:cell WithQuestionType:(QUESTION_TYPE)[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex] andQuestionIndex:QuestionIndex];
     return cell;
 }
 
@@ -129,6 +130,13 @@
     }
     return CurrentCell;
 }
+
+-(void) ReturnBtnClicked
+{
+    NSLog(@"ReturnBtnClicked");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void) NextBtnClicked
 {

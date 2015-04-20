@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *PrevBtn;
 @property (strong, nonatomic) IBOutlet UIView *QuestionPartView;
 @property (strong, nonatomic) IBOutlet UITableView *AnswersTableView;
+@property (strong, nonatomic) IBOutlet UIButton *ReturnBtn;
 @property (strong, nonatomic) NSArray *AnswersArray;
 @property NSInteger AnswerCount;
 
