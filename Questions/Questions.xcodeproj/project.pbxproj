@@ -116,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10B8CE341AE48C4F004B6291 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				10F0467A1AE1DA9D002DAC01 /* 1234567890.json */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		10D97C031AD7CD720002D04E = {
 			isa = PBXGroup;
 			children = (
@@ -137,8 +145,8 @@
 		10D97C0E1AD7CD720002D04E /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				10B8CE341AE48C4F004B6291 /* Resource */,
 				10FC82351ADBCC7700F8B841 /* General.h */,
-				10F0467A1AE1DA9D002DAC01 /* 1234567890.json */,
 				10F0467C1AE1DAB6002DAC01 /* JSONFileManager.h */,
 				10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */,
 				10FC81F21AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png */,
