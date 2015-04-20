@@ -27,12 +27,12 @@
     NSLog(@"question count = %d", [self GetQuestionCount]);
     NSLog(@"question of 1st %@", [self GetQuestionTitleWithIndex:1]);
     NSLog(@"question type of 1st %d", [self GetQuestionTypeWithIndex:1]);
-    
+    NSLog(@"answer count of 1st %d", [self GetAnswerCountWithIndex:1]);
 }
 
 -(NSInteger) GetQuestionCount
 {
-    return ([[_QuestionInfo valueForKey:@"questions"] count] - 1);
+    return ([[_QuestionInfo valueForKey:@"questions"] count]);
 }
 
 -(NSString*) GetQuestionTitleWithIndex : (NSInteger) index
@@ -47,5 +47,20 @@
     return [[[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:@"type"] integerValue];
 }
 
+-(NSInteger) GetAnswerCountWithIndex : (NSInteger) index
+{
+    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
+    return [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] count] - 3; // minus index, question and type
+}
+
+/* TODO:
+-(NSArray*) GetAnswersArrayWithIndex : (NSInteger) index
+{
+    NSInteger answerCount = [self GetAnswerCountWithIndex:index];
+    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
+    
+    return [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] count] - 3; // minus index, question and type
+}
+*/
 
 @end

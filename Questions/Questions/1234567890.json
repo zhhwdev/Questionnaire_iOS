@@ -62,13 +62,6 @@
             "question":"「學園團契社」是個充滿愛並且對生命有熱情來培養領袖的環境？",
             "answer1":"很好奇想多了解，可以主動聯繫我",
             "answer2":"謝謝，不用了"
-        },
-        "Person":{
-            "Name":"default",
-            "Mobile":"default",      
-            "Gender":0,
-            "Majer":"default",
-            "Class":0
         }
     }
 }

@@ -66,6 +66,7 @@
     // Return the number of rows in the section.
     return [_TheQuestionnaire GetQuestionCount];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -78,20 +79,22 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AnswerTheQuestionTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    /*
-    UILabel *QuestionLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, 675, 100)];
-    QuestionLab.font = [UIFont systemFontOfSize:30.0f];
-    QuestionLab.text = @"這邊是問題區";
-    [QuestionLab setTextColor:[UIColor whiteColor]];
-    [cell.QuestionPartView addSubview:QuestionLab];
-    */
-    cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:(indexPath.row + 1)];
+    NSInteger QuestionIndex = (indexPath.row + 1);
+    cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:QuestionIndex];
     cell.backgroundColor = [UIColor whiteColor];
+    
+    if (indexPath.row == 0) {
+        [cell.PrevBtn setHidden:YES];
+    } else {
+        [cell.PrevBtn setHidden:NO];
+    }
+    
     [cell.NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell.PrevBtn addTarget:self action:@selector(PrevBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [cell.NextBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    cell = [self setupTableviewCell:cell WithQuestionType:[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex] andQuestionIndex:QuestionIndex];
     return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -110,12 +113,29 @@
     
 }
 
+-(AnswerTheQuestionTableViewCell*) setupTableviewCell : (AnswerTheQuestionTableViewCell*) CurrentCell
+                                     WithQuestionType : (QUESTION_TYPE) QuestionType
+                                     andQuestionIndex : (NSInteger) index
+{
+    NSLog(@"QuestionType = %d", QuestionType);
+    switch (QuestionType) {
+        case QUESTION_TYPE_ASK_ANSWER:
+            break;
+        case QUESTION_TYPE_CHOOSE_ANSWER:
+            CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
+            break;
+        default:
+            break;
+    }
+    return CurrentCell;
+}
+
 -(void) NextBtnClicked
 {
     NSLog(@"NextBtnClicked %d", [self GetCurrentCell]);
     if ([self GetCurrentCell] + 1 >= [_TheQuestionnaire GetQuestionCount]) {
         NSLog(@"There is no next");
-        NSLog(@"TODO: Add personal info form");
+        NSLog(@"!! TODO: Add personal info form");
     } else {
         NSIndexPath *Indexpath = [NSIndexPath indexPathForRow:([self GetCurrentCell] + 1) inSection:0];
         [_TableView scrollToRowAtIndexPath:Indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];

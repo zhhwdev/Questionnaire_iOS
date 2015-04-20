@@ -13,6 +13,8 @@ typedef enum {
     QUESTION_TYPE_DEFAULT,
     QUESTION_TYPE_ASK_ANSWER,
     QUESTION_TYPE_CHOOSE_ANSWER,
+    QUESTION_TYPE_MIX,
+    
 }QUESTION_TYPE;
 
 @interface Questionnaire : NSObject
@@ -20,6 +22,8 @@ typedef enum {
 -(NSInteger) GetQuestionCount;
 -(NSString*) GetQuestionTitleWithIndex : (NSInteger) index;
 -(NSInteger) GetQuestionTypeWithIndex : (NSInteger) index;
+-(NSInteger) GetAnswerCountWithIndex : (NSInteger) index;
+
 
 @property (strong, nonatomic) NSDictionary  *QuestionInfo;
 

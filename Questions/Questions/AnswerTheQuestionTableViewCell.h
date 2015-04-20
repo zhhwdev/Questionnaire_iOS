@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnswerTheQuestionTableViewCell : UITableViewCell
+@interface AnswerTheQuestionTableViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *ContentLab;
 @property (strong, nonatomic) IBOutlet UIButton *NextBtn;
 @property (strong, nonatomic) IBOutlet UIButton *PrevBtn;
 @property (strong, nonatomic) IBOutlet UIView *QuestionPartView;
+@property (strong, nonatomic) IBOutlet UITableView *AnswersTableView;
+@property (strong, nonatomic) NSArray *AnswersArray;
+@property NSInteger AnswerCount;
+
 
 @end
