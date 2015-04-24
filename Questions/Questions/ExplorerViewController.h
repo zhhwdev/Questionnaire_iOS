@@ -10,12 +10,15 @@
 #import "TableViewCell.h"
 #import "General.h"
 #import "MainControlView.h"
-
+#import "SWTableViewCell.h"
 
 @interface ExplorerViewController : UIViewController <UINavigationControllerDelegate,
                                                         UITableViewDataSource,
                                                         UITableViewDelegate,
-                                                        UITabBarDelegate>
+                                                        UITabBarDelegate,
+                                                        SWTableViewCellDelegate>
+
+
 @property (strong, nonatomic) UITableView       *TableView;
 @property (strong, nonatomic) MainControlView   *ControlView;
 @end

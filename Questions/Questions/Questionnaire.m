@@ -23,11 +23,17 @@
 -(void)init_QuestionInfoWithID:(NSString*) QuestionnaireID
 {
     _QuestionInfo = [JSONFileManager JSON_ReadJSONFileWithFileName:QuestionnaireID];
+    
     NSLog(@"dic = %@", _QuestionInfo);
+    
     NSLog(@"question count = %d", [self GetQuestionCount]);
-    NSLog(@"question of 1st %@", [self GetQuestionTitleWithIndex:1]);
-    NSLog(@"question type of 1st %d", [self GetQuestionTypeWithIndex:1]);
-    NSLog(@"answer count of 1st %d", [self GetAnswerCountWithIndex:1]);
+    
+    NSLog(@"question of 1st %@", [self GetQuestionTitleWithIndex:0]);
+    
+    NSLog(@"question type of 1st = %d", [self GetQuestionTypeWithIndex:0]);
+    NSLog(@"answer count of 1st %d", [self GetAnswerCountWithIndex:0]);
+    NSLog(@"answer count of 1st %@", [self GetAnswersArrayWithIndex:0]);
+    
 }
 
 -(NSInteger) GetQuestionCount
@@ -37,36 +43,28 @@
 
 -(NSString*) GetQuestionTitleWithIndex : (NSInteger) index
 {
-    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
-    return [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:@"question"];
+    //NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
+    
+    return [[[_QuestionInfo valueForKey:@"questions"] objectAtIndex:index] valueForKey:@"question"];
 }
 
 -(NSInteger) GetQuestionTypeWithIndex : (NSInteger) index
 {
-    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
-    return [[[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:@"type"] integerValue];
+    //NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
+    return [[[[_QuestionInfo valueForKey:@"questions"] objectAtIndex:index] valueForKey:@"type"] integerValue];
 }
 
 -(NSInteger) GetAnswerCountWithIndex : (NSInteger) index
 {
-    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
-    return [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] count] - 3; // minus index, question and type
+    //NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
+    return [[[[_QuestionInfo valueForKey:@"questions"] objectAtIndex:index] valueForKey:@"options"] count]; // minus index, question and type
 }
 
 
 -(NSArray*) GetAnswersArrayWithIndex : (NSInteger) index
 {
-    NSInteger answerCount = [self GetAnswerCountWithIndex:index];
-    NSString *IndexStrForKey = [NSString stringWithFormat:@"%d", index];
     
-    NSMutableArray *AnswerArray = [[NSMutableArray alloc] init];
-    for (NSInteger Count = 0; Count < answerCount; Count++) {
-        NSString *AnswerKey = [NSString stringWithFormat:@"answer%d", (Count + 1)];
-        NSLog(@"%@ %@",AnswerKey, [[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:AnswerKey]);
-        [AnswerArray addObject:[[[_QuestionInfo valueForKey:@"questions"] valueForKey:IndexStrForKey] valueForKey:AnswerKey]];
-    }
-    
-    return AnswerArray; // minus index, question and type
+    return [[[_QuestionInfo valueForKey:@"questions"] objectAtIndex:index] valueForKey:@"options"]; // minus index, question and type
 }
 
 

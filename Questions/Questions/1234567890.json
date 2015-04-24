@@ -82,7 +82,7 @@
                             "key":"其他",
                             "value":false,
                             "commentEnable":true,
-                            "comment":""
+                            "comment":"***"
                             }
                             ]
                  },
@@ -101,6 +101,18 @@
                             "value":false,
                             "commentEnable":false,
                             "comment":""
+                            }
+                            ]
+                 },
+                 {
+                 "type":1,
+                 "question":"上大學後有交到幾個知心、無話不談的好友呢？",
+                 "options":[
+                            {
+                            "key":"",
+                            "value":false,
+                            "commentEnable":true,
+                            "comment":"***位"
                             }
                             ]
                  },

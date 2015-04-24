@@ -48,7 +48,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AnswersTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    cell.AnswerLab.text = [_AnswersArray objectAtIndex:indexPath.row];
+    cell.AnswerLab.text = [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row];
     return cell;
 }
 

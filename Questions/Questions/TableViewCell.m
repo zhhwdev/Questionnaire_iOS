@@ -10,6 +10,21 @@
 
 @implementation TableViewCell
 
+
+- (void)awakeFromNib {
+    // Initialization code
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
+
+
+
 - (TableViewCell*)initWithStyle:(UITableViewCellStyle)style
                        reuseIdentifier:(NSString *)reuseIdentifier
 

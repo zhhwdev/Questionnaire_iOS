@@ -79,7 +79,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AnswerTheQuestionTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    NSInteger QuestionIndex = (indexPath.row + 1);
+    NSInteger QuestionIndex = (indexPath.row);
     cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:QuestionIndex];
     cell.backgroundColor = [UIColor whiteColor];
     
@@ -123,20 +123,17 @@
         case QUESTION_TYPE_ASK_ANSWER:
             
             break;
-        case QUESTION_TYPE_CHOOSE_ANSWER:
+            
+        case QUESTION_TYPE_SINGLE_CHOISE:
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
             CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
             [CurrentCell.AnswersTableView  reloadData];
             break;
-        case QUESTION_TYPE_MIX:
-        {
-            //NSInteger CommentsCount = [[_TheQuestionnaire GetCommentIndicesWithIndex:index] count];
-            // TODO: To handle multiple comments
-            NSInteger CommentsIndex = [[[_TheQuestionnaire GetCommentIndicesWithIndex:index] objectAtIndex:0] integerValue] - 1;
-            NSLog(@"CommentsIndex = %d", CommentsIndex);
             
-        }
-        
+        case QUESTION_TYPE_SINGLE_CHOISE_WITH_COMMENT:
+            CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
+            CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
+            [CurrentCell.AnswersTableView  reloadData];
             
             break;
         default:

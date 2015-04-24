@@ -101,21 +101,62 @@
     
     static NSString *simpleTableIdentifier = @"QuestionCell";
     
+    //TableViewCell *cell = (TableViewCell*)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+//    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
+    
     cell.QuestionTitleLab.text = @"淡江大學人際關係訪問表";
-    [cell.GotoInfoBtn addTarget:self action:@selector(infoBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    //[cell.GotoInfoBtn addTarget:self action:@selector(infoBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                title:@"More"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"Delete"];
+    
+    
+    return rightUtilityButtons;
+}
 
+- (NSArray *)leftButtons
+{
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"check.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"clock.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"cross.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.55f green:0.27f blue:0.07f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"list.png"]];
+    
+    
+    return leftUtilityButtons;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return TABLE_CELL_HEIGHT;
