@@ -111,7 +111,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.leftUtilityButtons = [self leftButtons];
+    //cell.leftUtilityButtons = [self leftButtons];
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
     
@@ -125,17 +125,19 @@
 {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"More"];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Delete"];
+    
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor: MAIN_COLOR icon:[UIImage imageNamed:@"sheet3_white.png"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: MAIN_COLOR icon:[UIImage imageNamed:@"outbox4_white.png"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: MAIN_COLOR icon:[UIImage imageNamed:@"chart53_white.png"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: MAIN_COLOR icon:[UIImage imageNamed:@"bin9_white.png"]];
+    //[rightUtilityButtons sw_addUtilityButtonWithColor: MAIN_COLOR title:@"More"];
+    //[rightUtilityButtons sw_addUtilityButtonWithColor: MAIN_COLOR title:@"Delete"];
     
     
     return rightUtilityButtons;
 }
-
+/*
 - (NSArray *)leftButtons
 {
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
@@ -143,7 +145,7 @@
     
     [leftUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"check.png"]];
+                                                icon:[UIImage imageNamed:@"sheet3_white.png"]];
     [leftUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
                                                 icon:[UIImage imageNamed:@"clock.png"]];
@@ -157,6 +159,7 @@
     
     return leftUtilityButtons;
 }
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return TABLE_CELL_HEIGHT;
@@ -181,6 +184,39 @@
     InfoTableViewController *InfoVC = [[InfoTableViewController alloc] init];
     [self.navigationController pushViewController:InfoVC animated:YES];
 }
+
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    switch (index) {
+        case 0:
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Bookmark" message:@"Save to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+            break;
+        }
+        case 1:
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Email sent" message:@"Just sent the image to your INBOX" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+            break;
+        }
+        case 2:
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Facebook Sharing" message:@"Just shared the pattern image on Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+            break;
+        }
+        case 3:
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Sharing" message:@"Just shared the pattern image on Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }
+        default:
+            break;
+    }
+}
+
 
 //
 // To set navigation bar invisable

@@ -43,6 +43,10 @@
 		10E6F9331AEA61A9008B6176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E6F9321AEA61A9008B6176 /* Foundation.framework */; };
 		10E6F9351AEA61B0008B6176 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E6F9341AEA61B0008B6176 /* UIKit.framework */; };
 		10E6F93A1AEA61DB008B6176 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E6F9391AEA61DB008B6176 /* CoreGraphics.framework */; };
+		10E6F9441AEA9EC0008B6176 /* sheet3_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6F9431AEA9EC0008B6176 /* sheet3_white.png */; };
+		10E6F9481AEAA052008B6176 /* outbox4_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6F9471AEAA052008B6176 /* outbox4_white.png */; };
+		10E6F94A1AEAA6A6008B6176 /* bin9_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6F9491AEAA6A6008B6176 /* bin9_white.png */; };
+		10E6F94C1AEAA771008B6176 /* chart53_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E6F94B1AEAA771008B6176 /* chart53_white.png */; };
 		10F0467B1AE1DA9D002DAC01 /* 1234567890.json in Resources */ = {isa = PBXBuildFile; fileRef = 10F0467A1AE1DA9D002DAC01 /* 1234567890.json */; };
 		10F0467E1AE1DAB6002DAC01 /* JSONFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */; };
 		10F046811AE1EC3B002DAC01 /* Questionnaire.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F046801AE1EC3B002DAC01 /* Questionnaire.m */; };
@@ -120,6 +124,10 @@
 		10E6F9341AEA61B0008B6176 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		10E6F9371AEA61C8008B6176 /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Headers; path = System/Library/Frameworks/UIKit.framework/Headers; sourceTree = SDKROOT; };
 		10E6F9391AEA61DB008B6176 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		10E6F9431AEA9EC0008B6176 /* sheet3_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheet3_white.png; sourceTree = "<group>"; };
+		10E6F9471AEAA052008B6176 /* outbox4_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outbox4_white.png; sourceTree = "<group>"; };
+		10E6F9491AEAA6A6008B6176 /* bin9_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bin9_white.png; sourceTree = "<group>"; };
+		10E6F94B1AEAA771008B6176 /* chart53_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart53_white.png; sourceTree = "<group>"; };
 		10F0467A1AE1DA9D002DAC01 /* 1234567890.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1234567890.json; sourceTree = "<group>"; };
 		10F0467C1AE1DAB6002DAC01 /* JSONFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONFileManager.h; sourceTree = "<group>"; };
 		10F0467D1AE1DAB6002DAC01 /* JSONFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONFileManager.m; sourceTree = "<group>"; };
@@ -179,6 +187,10 @@
 				10FC82321ADBCBCF00F8B841 /* download.png */,
 				10DDAC401AE2605A00E9B5EB /* ASK.png */,
 				10DDAC3C1AE25BB000E9B5EB /* paper.png */,
+				10E6F9431AEA9EC0008B6176 /* sheet3_white.png */,
+				10E6F9471AEAA052008B6176 /* outbox4_white.png */,
+				10E6F9491AEAA6A6008B6176 /* bin9_white.png */,
+				10E6F94B1AEAA771008B6176 /* chart53_white.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -389,9 +401,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				10E6F8DD1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.xib in Resources */,
+				10E6F9441AEA9EC0008B6176 /* sheet3_white.png in Resources */,
+				10E6F94C1AEAA771008B6176 /* chart53_white.png in Resources */,
 				10FC81F31AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png in Resources */,
+				10E6F94A1AEAA6A6008B6176 /* bin9_white.png in Resources */,
 				10F0467B1AE1DA9D002DAC01 /* 1234567890.json in Resources */,
 				10FC82231ADBA62400F8B841 /* TableViewCell.xib in Resources */,
+				10E6F9481AEAA052008B6176 /* outbox4_white.png in Resources */,
 				10B8CE2B1AE3EE84004B6291 /* ok2.png in Resources */,
 				10E6F9311AEA60A0008B6176 /* um.png in Resources */,
 				10E6F92F1AEA60A0008B6176 /* list@2x.png in Resources */,
