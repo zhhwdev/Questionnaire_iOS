@@ -26,7 +26,7 @@ typedef enum {
 -(NSInteger) GetQuestionTypeWithIndex : (NSInteger) index;
 -(NSInteger) GetAnswerCountWithIndex : (NSInteger) index;
 -(NSArray*) GetAnswersArrayWithIndex : (NSInteger) index;
--(NSArray*) GetCommentIndicesWithIndex : (NSInteger) index;
+-(NSString*) GetCommentStringWithIndex : (NSInteger) index;
 
 
 @property (strong, nonatomic) NSDictionary  *QuestionInfo;

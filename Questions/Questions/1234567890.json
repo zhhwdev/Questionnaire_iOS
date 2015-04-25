@@ -10,19 +10,22 @@
                             "key":"變好喔！",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"變差了",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"嗯，差不多",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             }
                             ]
                  },
@@ -34,31 +37,36 @@
                             "key":"3個以下",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"5-10位",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"10-15位",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"15-20位",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"20位以上",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             }
                             ]
                  },
@@ -70,19 +78,22 @@
                             "key":"有",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"沒有",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"其他",
                             "value":false,
                             "commentEnable":true,
-                            "comment":"***"
+                            "comment":"***",
+                            "commentType":2
                             }
                             ]
                  },
@@ -94,13 +105,15 @@
                             "key":"會",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"不會",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             }
                             ]
                  },
@@ -112,7 +125,8 @@
                             "key":"",
                             "value":false,
                             "commentEnable":true,
-                            "comment":"***位"
+                            "comment":"***位",
+                            "commentType":1
                             }
                             ]
                  },
@@ -124,13 +138,15 @@
                             "key":"會",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"不會",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             }
                             ]
                  },
@@ -142,13 +158,15 @@
                             "key":"很好奇想多了解，可以主動聯繫我",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             },
                             {
                             "key":"謝謝，不用了",
                             "value":false,
                             "commentEnable":false,
-                            "comment":""
+                            "comment":"",
+                            "commentType":0
                             }
                             ]
                  }

@@ -11,7 +11,15 @@
 @implementation AnswersTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    _CommentTextField = [[UITextField alloc] initWithFrame:OPTION_COMMENT_DEFAULT_RECT];
+    [_CommentTextField setBorderStyle:UITextBorderStyleLine];
+    [self.contentView addSubview:_CommentTextField];
+    
+    _CommentLab = [[UILabel alloc] initWithFrame:OPTION_LABEL_DEFAULT_RECT];
+    [_CommentLab setBackgroundColor:[UIColor redColor]];
+    [self.contentView addSubview:_CommentLab];
+
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -8,16 +8,33 @@
 
 #import "AnswerTheQuestionTableViewCell.h"
 #import "AnswersTableViewCell.h"
+
 @implementation AnswerTheQuestionTableViewCell
 
 - (void)awakeFromNib {
+    
     // Initialization code
     NSLog(@"%s",__PRETTY_FUNCTION__);
     [_AnswersTableView setSeparatorColor:[UIColor clearColor]];
     [_AnswersTableView setScrollEnabled:NO];
     _AnswersTableView.delegate = self;
     _AnswersTableView.dataSource = self;
+    
+    _AskandAnswerTextField = [[UITextField alloc] initWithFrame:ASK_ANSWER_TEXTFIELD_RECT];
+    [_AskandAnswerTextField setBorderStyle:UITextBorderStyleLine];
+    [_AskandAnswerTextField setHidden:YES];
+    [_AskandAnswerTextField setUserInteractionEnabled:YES];
+    [_AskandAnswerTextField setTextAlignment:NSTextAlignmentRight];
+    [self.contentView addSubview:_AskandAnswerTextField];
+    
+    _AskandAnswerTextLab = [[UILabel alloc] initWithFrame:ASK_ANSWER_TEXTLAB_RECT];
+    [_AskandAnswerTextLab setFont:[UIFont systemFontOfSize:30.0f]];
+    [_AskandAnswerTextLab setHidden:YES];
+    [self.contentView addSubview:_AskandAnswerTextLab];
+    
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -48,12 +65,47 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AnswersTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    // Set option cell
     cell.AnswerLab.text = [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row];
+    
+    // If there is comment for the option 
+    if ([[[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row] boolValue]) {
+        
+        [cell.CommentTextField setHidden:NO];
+        [cell.CommentTextField setUserInteractionEnabled:YES];
+        
+        if ([[[_AnswersArray valueForKey:@"comment"] objectAtIndex:indexPath.row] length] > 3) {
+            [cell.CommentLab setHidden:NO];
+            
+            NSString *CommentLabText = [[_AnswersArray valueForKey:@"comment"] objectAtIndex:indexPath.row];
+            NSRange Range = [CommentLabText rangeOfString:@"***"];
+            if (Range.location != 0) {
+                NSLog(@"!!! TODO: Move the label in front of the textField");
+            }
+            CommentLabText = [CommentLabText stringByReplacingOccurrencesOfString:@"***" withString:@""];
+            [cell.CommentLab setText:CommentLabText];
+            [cell.CommentLab sizeToFit];
+            
+        } else {
+            [cell.CommentLab setHidden:YES];
+        }
+
+
+    } else {
+        
+        [cell.CommentLab setHidden:YES];
+        [cell.CommentTextField setHidden:YES];
+        
+    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([[[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row] boolValue]) {
+        return 150.0f;
+    }
     return 80.0f;
 }
 

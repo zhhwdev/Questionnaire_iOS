@@ -19,6 +19,7 @@
     NSLog(@"%s",__PRETTY_FUNCTION__);
     [self init_TheQuestionnaire];
     [self init_TableView];
+    [self init_ReplyAnswerArray];
     // Do any additional setup after loading the view.
 }
 
@@ -45,6 +46,10 @@
     _TheQuestionnaire = [[Questionnaire alloc] initWithTheQuestionnaireID:@"1234567890"];
 }
 
+-(void) init_ReplyAnswerArray
+{
+    _ReplyAnswerArray = [[NSMutableArray alloc] init];
+}
 /*
 #pragma mark - Navigation
 
@@ -93,7 +98,10 @@
     [cell.PrevBtn addTarget:self action:@selector(PrevBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell.ReturnBtn addTarget:self action:@selector(ReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell.NextBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    cell = [self setupTableviewCell:cell WithQuestionType:(QUESTION_TYPE)[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex] andQuestionIndex:QuestionIndex];
+    
+    cell = [self setupTableviewCell:cell
+                   WithQuestionType:(QUESTION_TYPE)[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex]
+                   andQuestionIndex:QuestionIndex];
     return cell;
 }
 
@@ -121,19 +129,37 @@
     NSLog(@"QuestionType = %d", QuestionType);
     switch (QuestionType) {
         case QUESTION_TYPE_ASK_ANSWER:
+        {
             
+            [CurrentCell.AnswersTableView  setHidden:YES];
+            [CurrentCell.AskandAnswerTextField  setHidden:NO];
+            [CurrentCell.AskandAnswerTextLab  setHidden:NO];
+            
+            NSString *CommentText = [_TheQuestionnaire GetCommentStringWithIndex:index];
+            CommentText = [CommentText stringByReplacingOccurrencesOfString:@"***" withString:@""];
+            [CurrentCell.AskandAnswerTextLab setText:CommentText];
+            
+        }
             break;
             
         case QUESTION_TYPE_SINGLE_CHOISE:
+            [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
             CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
             [CurrentCell.AnswersTableView  reloadData];
+            
+            [CurrentCell.AskandAnswerTextField  setHidden:YES];
+            [CurrentCell.AskandAnswerTextLab  setHidden:YES];
             break;
             
         case QUESTION_TYPE_SINGLE_CHOISE_WITH_COMMENT:
+            [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
             CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
             [CurrentCell.AnswersTableView  reloadData];
+            
+            [CurrentCell.AskandAnswerTextField  setHidden:YES];
+            [CurrentCell.AskandAnswerTextLab  setHidden:YES];
             
             break;
         default:

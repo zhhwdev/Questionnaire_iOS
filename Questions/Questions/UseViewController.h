@@ -15,6 +15,6 @@
 @property (strong, nonatomic) Questionnaire *TheQuestionnaire;
 @property (strong, nonatomic) UITableView   *TableView;
 
-
+@property (strong, nonatomic) NSMutableArray *ReplyAnswerArray;
 
 @end

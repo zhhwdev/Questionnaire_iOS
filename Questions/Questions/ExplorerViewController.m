@@ -191,25 +191,27 @@
     switch (index) {
         case 0:
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Bookmark" message:@"Save to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            /*UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Bookmark" message:@"Save to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
+             */
+            [self infoBtnClicked];
             break;
         }
         case 1:
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Email sent" message:@"Just sent the image to your INBOX" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"SHARE BTN" message:@"THIS IS THE SHARE BTN" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
             break;
         }
         case 2:
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Facebook Sharing" message:@"Just shared the pattern image on Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"CHART BTN" message:@"THIS IS CHART BTN" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
             break;
         }
         case 3:
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Sharing" message:@"Just shared the pattern image on Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"DELET BTN" message:@"THIS IS DELETE BTN" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
         }
         default:
@@ -227,26 +229,25 @@
                     animated:(BOOL)animated
 {
     
- if (viewController == self) {
- 
- [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
- 
- [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"no_navbar"] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
- 
- self.navigationController.navigationBarHidden = YES;
- [self.navigationController.navigationBar setTranslucent:YES];
- [self.navigationController.navigationBar.layer setMasksToBounds:YES];
- 
- 
- } else {
- 
- [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bar"] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
- [self.navigationController.navigationBar.layer setMasksToBounds:NO];
- [self.navigationController.navigationBar setTranslucent:NO];
- self.navigationController.navigationBarHidden = NO;
- 
- 
- }
+     if (viewController == self) {
+     
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+     
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"no_navbar"] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+     
+     self.navigationController.navigationBarHidden = YES;
+     [self.navigationController.navigationBar setTranslucent:YES];
+     [self.navigationController.navigationBar.layer setMasksToBounds:YES];
+     
+     
+     } else {
+     
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bar"] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+     [self.navigationController.navigationBar.layer setMasksToBounds:NO];
+     [self.navigationController.navigationBar setTranslucent:NO];
+     self.navigationController.navigationBarHidden = NO;
+     
+     }
  
  }
 
