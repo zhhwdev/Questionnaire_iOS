@@ -76,7 +76,7 @@
     
     //NSLog(@"%s !!! - %d", __PRETTY_FUNCTION__, [[[_AnswersArray valueForKey:@"value"] objectAtIndex:indexPath.row] boolValue]);
     if ([[[_AnswersArray valueForKey:@"value"] objectAtIndex:indexPath.row] boolValue]) {
-        [cell.ChoosenBtn setImage:[UIImage imageNamed:@"approve9.png"] forState:UIControlStateNormal];
+        [cell.ChoosenBtn setImage:[UIImage imageNamed:@"circular203.png"] forState:UIControlStateNormal];
     } else {
         [cell.ChoosenBtn setImage:[UIImage imageNamed:@"close32.png"] forState:UIControlStateNormal];
     }
@@ -122,20 +122,40 @@
     return 80.0f;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self SelectOptionWithIndex:indexPath.row];
+}
+
 -(void) ChoosenBtnClicked:(id)sender
 {
     NSLog(@"ChoosenBtn %d", ((UIButton*) sender).tag);
     NSInteger index = ((UIButton*) sender).tag;
+    
+    [self SelectOptionWithIndex:index];
+}
 
+
+
+-(void) SelectOptionWithIndex : (NSInteger) OptionIndex
+{
+    
     // TODO: To handle single selection
     switch (_CurrentQuestionType) {
         case QUESTION_TYPE_SINGLE_CHOISE:
         case QUESTION_TYPE_SINGLE_CHOISE_WITH_COMMENT:
         {
-            
-            NSMutableDictionary *CurrentAnswer = [[NSMutableDictionary alloc] initWithDictionary:[_AnswersArray objectAtIndex:index]];
+            for (NSInteger index = 0; index < [_AnswersArray count]; index++) {
+                NSMutableDictionary *Dictionary = [[NSMutableDictionary alloc] initWithDictionary:[_AnswersArray objectAtIndex:index]];
+                if ([[Dictionary valueForKey:@"value"] boolValue]) {
+                    [Dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"value"]; // Set option as selected
+                    [_AnswersArray replaceObjectAtIndex:index withObject:Dictionary];
+                }
+                
+            }
+            NSMutableDictionary *CurrentAnswer = [[NSMutableDictionary alloc] initWithDictionary:[_AnswersArray objectAtIndex:OptionIndex]];
             [CurrentAnswer setValue:[NSNumber numberWithBool:YES] forKey:@"value"]; // Set option as selected
-            [_AnswersArray replaceObjectAtIndex:index withObject:CurrentAnswer];
+            [_AnswersArray replaceObjectAtIndex:OptionIndex withObject:CurrentAnswer];
             [_AnswersTableView reloadData];
         }
             
@@ -144,7 +164,7 @@
         case QUESTION_TYPE_MULTI_CHOISE:
         case QUESTION_TYPE_MULTI_CHOISE_WITH_COMMENT:
         {
-        
+            
         }
             break;
             
@@ -152,15 +172,6 @@
             break;
     }
     
-    
-    
-    /*
-    
-    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndex:((UIButton*) sender).tag];
-    [_AnswersTableView beginUpdates];
-    [_AnswersTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    [_AnswersTableView endUpdates];
-     */
 }
 
 
