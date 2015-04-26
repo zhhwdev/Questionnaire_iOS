@@ -21,11 +21,12 @@ typedef enum {
 
 @interface Questionnaire : NSObject
 -(Questionnaire*) initWithTheQuestionnaireID : (NSString*) QuestionnaireID;
+-(NSArray*) GetAllQuestion;
 -(NSInteger) GetQuestionCount;
 -(NSString*) GetQuestionTitleWithIndex : (NSInteger) index;
 -(NSInteger) GetQuestionTypeWithIndex : (NSInteger) index;
 -(NSInteger) GetAnswerCountWithIndex : (NSInteger) index;
--(NSArray*) GetAnswersArrayWithIndex : (NSInteger) index;
+-(NSArray*)  GetAnswersArrayWithIndex : (NSInteger) index;
 -(NSString*) GetCommentStringWithIndex : (NSInteger) index;
 
 

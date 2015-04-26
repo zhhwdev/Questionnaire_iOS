@@ -34,6 +34,11 @@
     */
 }
 
+-(NSArray*) GetAllQuestion
+{
+    return [_QuestionInfo valueForKey:@"questions"];
+}
+
 -(NSInteger) GetQuestionCount
 {
     return ([[_QuestionInfo valueForKey:@"questions"] count]);

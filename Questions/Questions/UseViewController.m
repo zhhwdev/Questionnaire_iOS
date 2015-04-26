@@ -8,7 +8,9 @@
 
 #import "UseViewController.h"
 
-@interface UseViewController ()
+@interface UseViewController () {
+    NSInteger _CurrentIndex;
+}
 
 @end
 
@@ -44,11 +46,13 @@
 -(void) init_TheQuestionnaire
 {
     _TheQuestionnaire = [[Questionnaire alloc] initWithTheQuestionnaireID:@"1234567890"];
+    
 }
 
 -(void) init_ReplyAnswerArray
 {
-    _ReplyAnswerArray = [[NSMutableArray alloc] init];
+    _ReplyAnswerArray = [[NSMutableArray alloc] initWithArray:[_TheQuestionnaire GetAllQuestion] copyItems:YES];
+    NSLog(@"%@", [_ReplyAnswerArray objectAtIndex:0]);
 }
 /*
 #pragma mark - Navigation
@@ -84,7 +88,10 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AnswerTheQuestionTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    
     NSInteger QuestionIndex = (indexPath.row);
+    _CurrentIndex = QuestionIndex;
     cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:QuestionIndex];
     cell.backgroundColor = [UIColor whiteColor];
     
@@ -127,6 +134,9 @@
                                      andQuestionIndex : (NSInteger) index
 {
     NSLog(@"QuestionType = %d", QuestionType);
+    
+    CurrentCell.delegate = self;
+    
     switch (QuestionType) {
         case QUESTION_TYPE_ASK_ANSWER:
         {
@@ -143,21 +153,28 @@
             break;
             
         case QUESTION_TYPE_SINGLE_CHOISE:
+            
             [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
-            CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
+            //CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
+            CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[[_ReplyAnswerArray valueForKey:@"options"] objectAtIndex:index]];
+            //NSLog(@"answer array = %@", [[_ReplyAnswerArray valueForKey:@"options"] objectAtIndex:index]);
+            
             CurrentCell.CurrentQuestionType = QuestionType;
             [CurrentCell.AnswersTableView  reloadData];
             
             [CurrentCell.AskandAnswerTextField  setHidden:YES];
             [CurrentCell.AskandAnswerTextLab  setHidden:YES];
+            
             break;
             
         case QUESTION_TYPE_SINGLE_CHOISE_WITH_COMMENT:
+            
             [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
-            CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
-            CurrentCell.CurrentQuestionType = QuestionType;            
+            //CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
+            CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[[_ReplyAnswerArray valueForKey:@"options"] objectAtIndex:index]];
+            CurrentCell.CurrentQuestionType = QuestionType;
             [CurrentCell.AnswersTableView  reloadData];
             
             [CurrentCell.AskandAnswerTextField  setHidden:YES];
@@ -202,6 +219,17 @@
 -(NSInteger) GetCurrentCell
 {
     return (NSInteger)((_TableView.contentOffset.y / self.view.frame.size.height));
+}
+
+
+-(void) OptionHasBeenSelected:(NSArray*) OptionArray
+{
+    NSMutableDictionary *QuestionObj = [[NSMutableDictionary alloc] initWithDictionary:[_ReplyAnswerArray objectAtIndex:_CurrentIndex]];
+    [QuestionObj setValue:OptionArray forKey:@"options"];
+    
+    [_ReplyAnswerArray replaceObjectAtIndex:_CurrentIndex withObject:QuestionObj];
+    NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:1]);
+    NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:0]);
 }
 
 @end

@@ -12,6 +12,11 @@
 #define ASK_ANSWER_TEXTFIELD_RECT   CGRectMake(24.0f, 350.0f, 360.0f, 44)
 #define ASK_ANSWER_TEXTLAB_RECT     CGRectMake(390.0f, 350.0f, 300.0f, 44)
 
+@protocol AnswerTheQuestionDelegate
+@optional
+-(void) OptionHasBeenSelected:(NSArray*) OptionArray;
+@end
+
 
 @interface AnswerTheQuestionTableViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UILabel  *ContentLab;
@@ -27,6 +32,8 @@
 
 @property (strong, nonatomic) UITextField *AskandAnswerTextField;
 @property (strong, nonatomic) UILabel     *AskandAnswerTextLab;
+
+@property (strong) id<AnswerTheQuestionDelegate> delegate;
 
 
 @end

@@ -69,7 +69,7 @@
     
     // Set option cell
     cell.AnswerLab.text = [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row];
-
+    NSLog(@"text = %@", [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row]);
     [cell.ChoosenBtn addTarget:self action:@selector(ChoosenBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     cell.ChoosenBtn.tag = indexPath.row;
     
@@ -116,6 +116,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"commentEnable = %@", [[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row]);
+    
     if ([[[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row] boolValue]) {
         return 150.0f;
     }
@@ -172,6 +174,7 @@
             break;
     }
     
+    [_delegate OptionHasBeenSelected:_AnswersArray];
 }
 
 
