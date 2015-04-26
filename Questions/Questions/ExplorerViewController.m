@@ -45,7 +45,8 @@
                                                               self.view.frame.size.height)];
     _TableView.dataSource = self;
     _TableView.delegate = self;
-    [_TableView setBackgroundColor:[UIColor whiteColor]];
+    //[_TableView setBackgroundColor:[UIColor whiteColor]];
+    [_TableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gridpaperlightbluepattern.png"]]];
     [_TableView setSeparatorColor:[UIColor clearColor]];
     [self.view addSubview:_TableView];
 }
@@ -117,7 +118,7 @@
     
     cell.QuestionTitleLab.text = @"淡江大學人際關係訪問表";
     //[cell.GotoInfoBtn addTarget:self action:@selector(infoBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

@@ -69,7 +69,6 @@
     
     // Set option cell
     cell.AnswerLab.text = [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row];
-    NSLog(@"text = %@", [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row]);
     [cell.ChoosenBtn addTarget:self action:@selector(ChoosenBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     cell.ChoosenBtn.tag = indexPath.row;
     
@@ -131,7 +130,7 @@
 
 -(void) ChoosenBtnClicked:(id)sender
 {
-    NSLog(@"ChoosenBtn %d", ((UIButton*) sender).tag);
+    //NSLog(@"ChoosenBtn %d", ((UIButton*) sender).tag);
     NSInteger index = ((UIButton*) sender).tag;
     
     [self SelectOptionWithIndex:index];

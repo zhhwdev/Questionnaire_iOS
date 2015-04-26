@@ -228,8 +228,8 @@
     [QuestionObj setValue:OptionArray forKey:@"options"];
     
     [_ReplyAnswerArray replaceObjectAtIndex:_CurrentIndex withObject:QuestionObj];
-    NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:1]);
-    NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:0]);
+    //NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:1]);
+    //NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:0]);
 }
 
 @end
