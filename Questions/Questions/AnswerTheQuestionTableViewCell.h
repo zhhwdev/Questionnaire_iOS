@@ -19,12 +19,10 @@
 
 
 @interface AnswerTheQuestionTableViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIView *QuestionBackView;
 @property (strong, nonatomic) IBOutlet UILabel  *ContentLab;
-@property (strong, nonatomic) IBOutlet UIButton *NextBtn;
-@property (strong, nonatomic) IBOutlet UIButton *PrevBtn;
 @property (strong, nonatomic) IBOutlet UIView   *QuestionPartView;
 @property (strong, nonatomic) IBOutlet UITableView *AnswersTableView;
-@property (strong, nonatomic) IBOutlet UIButton *ReturnBtn;
 @property (strong, nonatomic) NSMutableArray *AnswersArray;
 @property (strong, nonatomic) NSMutableArray *LocalAnswersArray;
 @property QUESTION_TYPE CurrentQuestionType;

@@ -43,48 +43,6 @@
                         <rect key="frame" x="24" y="350" width="720" height="500"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="146-CX-K1H">
-                        <rect key="frame" x="609" y="923" width="135" height="65"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                        <state key="normal" title="下一題">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvb-8l-cI4">
-                        <rect key="frame" x="24" y="923" width="135" height="65"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                        <state key="normal" title="上一題">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9g-nc-mri">
-                        <rect key="frame" x="314" y="923" width="135" height="65"/>
-                        <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                        <state key="normal" title="跳出">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="68n-dz-2Nz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="100" id="Xrw-PY-vYF"/>
@@ -93,10 +51,8 @@
             <connections>
                 <outlet property="AnswersTableView" destination="QM3-aU-3On" id="sUI-9o-qIt"/>
                 <outlet property="ContentLab" destination="68n-dz-2Nz" id="jyD-uJ-YIe"/>
-                <outlet property="NextBtn" destination="146-CX-K1H" id="nzg-Td-Oss"/>
-                <outlet property="PrevBtn" destination="qvb-8l-cI4" id="mUc-Wo-dZO"/>
+                <outlet property="QuestionBackView" destination="BXK-G4-0zF" id="XAf-9D-aE1"/>
                 <outlet property="QuestionPartView" destination="BXK-G4-0zF" id="r85-Oj-ol2"/>
-                <outlet property="ReturnBtn" destination="a9g-nc-mri" id="r9t-yh-yZ4"/>
             </connections>
             <point key="canvasLocation" x="429" y="480"/>
         </tableViewCell>

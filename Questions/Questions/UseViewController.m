@@ -7,6 +7,7 @@
 //
 
 #import "UseViewController.h"
+#import "General.h"
 
 @interface UseViewController () {
     NSInteger _CurrentIndex;
@@ -22,6 +23,7 @@
     [self init_TheQuestionnaire];
     [self init_TableView];
     [self init_ReplyAnswerArray];
+    [self init_Btns];
     // Do any additional setup after loading the view.
 }
 
@@ -30,6 +32,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)init_Btns
+{
+    _NextBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 40 - 135, self.view.frame.size.height - 40 - 65, 135, 65)];
+    [_NextBtn setBackgroundColor:MAIN_COLOR];
+    [_NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_NextBtn setTitle:@"下一題" forState:UIControlStateNormal];
+    [_NextBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
+    [_NextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_NextBtn.layer setCornerRadius:10.0f];
+    [self.view addSubview:_NextBtn];
+    
+    _PrevBtn = [[UIButton alloc] initWithFrame:CGRectMake(40, self.view.frame.size.height - 40 - 65, 135, 65)];
+    [_PrevBtn setBackgroundColor:MAIN_COLOR];
+    [_PrevBtn addTarget:self action:@selector(PrevBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_PrevBtn setTitle:@"上一題" forState:UIControlStateNormal];
+    [_PrevBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_PrevBtn.layer setCornerRadius:10.0f];
+    [_PrevBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
+    [self.view addSubview:_PrevBtn];
+    
+    _ReturnBtn = [[UIButton alloc] initWithFrame:CGRectMake(40, self.view.frame.size.height - 40 - 65, 135, 65)];
+    _ReturnBtn.center = CGPointMake(self.view.frame.size.width / 2, _NextBtn.center.y);
+    [_ReturnBtn setBackgroundColor:[UIColor redColor]];
+    [_ReturnBtn addTarget:self action:@selector(ReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_ReturnBtn setTitle:@"跳出" forState:UIControlStateNormal];
+    [_ReturnBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_ReturnBtn.layer setCornerRadius:10.0f];
+    [_ReturnBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
+    [self.view addSubview:_ReturnBtn];
+    
+}
 
 -(void)init_TableView
 {
@@ -39,6 +72,7 @@
     _TableView.allowsSelection = NO;
     [_TableView setPagingEnabled:YES];
     _TableView.scrollEnabled = NO;
+    [_TableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper.png"]]];
     
     [self.view addSubview:_TableView];
 }
@@ -54,16 +88,6 @@
     _ReplyAnswerArray = [[NSMutableArray alloc] initWithArray:[_TheQuestionnaire GetAllQuestion] copyItems:YES];
     NSLog(@"%@", [_ReplyAnswerArray objectAtIndex:0]);
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 
 #pragma mark - Table view data source
@@ -73,7 +97,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [_TheQuestionnaire GetQuestionCount];
+    return [_TheQuestionnaire GetQuestionCount] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,26 +113,40 @@
         cell = [nib objectAtIndex:0];
     }
     
-    
-    NSInteger QuestionIndex = (indexPath.row);
-    _CurrentIndex = QuestionIndex;
-    cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:QuestionIndex];
-    cell.backgroundColor = [UIColor whiteColor];
-    
-    if (indexPath.row == 0) {
-        [cell.PrevBtn setHidden:YES];
+    if (indexPath.row >= [_TheQuestionnaire GetQuestionCount]) {
+        
+        [cell.QuestionBackView setHidden:YES];
+        [cell.ContentLab setHidden:YES];
+        [cell.QuestionPartView setHidden:YES];
+        [cell.AnswersTableView setHidden:YES];
+        [cell.AskandAnswerTextField setHidden:YES];
+        [cell.AskandAnswerTextLab setHidden:YES];
+        
+        [_ReturnBtn setTitle:@"完成" forState:UIControlStateNormal];
+        [_PrevBtn setHidden:YES];
+        [_NextBtn setHidden:YES];
+        
     } else {
-        [cell.PrevBtn setHidden:NO];
+        
+        NSInteger QuestionIndex = (indexPath.row);
+        _CurrentIndex = QuestionIndex;
+        cell.ContentLab.text = [_TheQuestionnaire GetQuestionTitleWithIndex:QuestionIndex];
+        cell.backgroundColor = [UIColor clearColor];
+        
+        
+        if (indexPath.row == 0) {
+            [_PrevBtn setHidden:YES];
+        } else {
+            [_PrevBtn setHidden:NO];
+        }
+        
+        cell = [self setupTableviewCell:cell
+                       WithQuestionType:(QUESTION_TYPE)[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex]
+                       andQuestionIndex:QuestionIndex];
+        
+        
+
     }
-    
-    [cell.NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [cell.PrevBtn addTarget:self action:@selector(PrevBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [cell.ReturnBtn addTarget:self action:@selector(ReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [cell.NextBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    
-    cell = [self setupTableviewCell:cell
-                   WithQuestionType:(QUESTION_TYPE)[_TheQuestionnaire GetQuestionTypeWithIndex:QuestionIndex]
-                   andQuestionIndex:QuestionIndex];
     return cell;
 }
 
@@ -156,9 +194,7 @@
             
             [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
-            //CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
             CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[[_ReplyAnswerArray valueForKey:@"options"] objectAtIndex:index]];
-            //NSLog(@"answer array = %@", [[_ReplyAnswerArray valueForKey:@"options"] objectAtIndex:index]);
             
             CurrentCell.CurrentQuestionType = QuestionType;
             [CurrentCell.AnswersTableView  reloadData];
@@ -174,6 +210,7 @@
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
             //CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
             CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[[_ReplyAnswerArray valueForKey:@"options"] objectAtIndex:index]];
+            
             CurrentCell.CurrentQuestionType = QuestionType;
             [CurrentCell.AnswersTableView  reloadData];
             
@@ -198,8 +235,10 @@
 {
     //NSLog(@"NextBtnClicked %d", [self GetCurrentCell]);
     if ([self GetCurrentCell] + 1 >= [_TheQuestionnaire GetQuestionCount]) {
-        NSLog(@"There is no next");
-        NSLog(@"!! TODO: Add personal info form");
+
+        NSIndexPath *Indexpath = [NSIndexPath indexPathForRow:([self GetCurrentCell] + 1) inSection:0];        
+        [_TableView scrollToRowAtIndexPath:Indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+
     } else {
         NSIndexPath *Indexpath = [NSIndexPath indexPathForRow:([self GetCurrentCell] + 1) inSection:0];
         [_TableView scrollToRowAtIndexPath:Indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -224,12 +263,16 @@
 
 -(void) OptionHasBeenSelected:(NSArray*) OptionArray
 {
+    [self SetReplyAnswerArrayAfterAnswerWithOptionArray:OptionArray];
+}
+
+-(void) SetReplyAnswerArrayAfterAnswerWithOptionArray : (NSArray*) OptionArray
+{
+    
     NSMutableDictionary *QuestionObj = [[NSMutableDictionary alloc] initWithDictionary:[_ReplyAnswerArray objectAtIndex:_CurrentIndex]];
     [QuestionObj setValue:OptionArray forKey:@"options"];
-    
     [_ReplyAnswerArray replaceObjectAtIndex:_CurrentIndex withObject:QuestionObj];
-    //NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:1]);
-    //NSLog(@"%s index:%d, optionArray = %@", __PRETTY_FUNCTION__, _CurrentIndex, [_ReplyAnswerArray objectAtIndex:0]);
+
 }
 
 @end

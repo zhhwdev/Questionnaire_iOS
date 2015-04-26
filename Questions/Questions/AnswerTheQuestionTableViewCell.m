@@ -19,6 +19,7 @@
     [_AnswersTableView setScrollEnabled:NO];
     _AnswersTableView.delegate = self;
     _AnswersTableView.dataSource = self;
+    [_AnswersTableView setBackgroundColor:[UIColor clearColor]];
     
     _AskandAnswerTextField = [[UITextField alloc] initWithFrame:ASK_ANSWER_TEXTFIELD_RECT];
     [_AskandAnswerTextField setBorderStyle:UITextBorderStyleLine];
@@ -110,12 +111,13 @@
         [cell.CommentTextField setHidden:YES];
         
     }
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"commentEnable = %@", [[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row]);
     
     if ([[[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row] boolValue]) {
         return 150.0f;

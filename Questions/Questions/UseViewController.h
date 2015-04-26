@@ -17,4 +17,8 @@
 
 @property (strong, nonatomic) NSMutableArray *ReplyAnswerArray;
 
+@property (strong, nonatomic) IBOutlet UIButton *NextBtn;
+@property (strong, nonatomic) IBOutlet UIButton *PrevBtn;
+@property (strong, nonatomic) IBOutlet UIButton *ReturnBtn;
+
 @end
