@@ -145,7 +145,8 @@
         case QUESTION_TYPE_SINGLE_CHOISE:
             [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
-            CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
+            CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
+            CurrentCell.CurrentQuestionType = QuestionType;
             [CurrentCell.AnswersTableView  reloadData];
             
             [CurrentCell.AskandAnswerTextField  setHidden:YES];
@@ -155,7 +156,8 @@
         case QUESTION_TYPE_SINGLE_CHOISE_WITH_COMMENT:
             [CurrentCell.AnswersTableView  setHidden:NO];
             CurrentCell.AnswerCount = [_TheQuestionnaire GetAnswerCountWithIndex:index];
-            CurrentCell.AnswersArray = [_TheQuestionnaire GetAnswersArrayWithIndex:index];
+            CurrentCell.AnswersArray = [NSMutableArray arrayWithArray:[_TheQuestionnaire GetAnswersArrayWithIndex:index]];
+            CurrentCell.CurrentQuestionType = QuestionType;            
             [CurrentCell.AnswersTableView  reloadData];
             
             [CurrentCell.AskandAnswerTextField  setHidden:YES];

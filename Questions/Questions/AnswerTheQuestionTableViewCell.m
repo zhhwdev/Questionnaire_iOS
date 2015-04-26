@@ -32,6 +32,7 @@
     [_AskandAnswerTextLab setHidden:YES];
     [self.contentView addSubview:_AskandAnswerTextLab];
     
+    
 }
 
 
@@ -68,13 +69,25 @@
     
     // Set option cell
     cell.AnswerLab.text = [[_AnswersArray valueForKey:@"key"] objectAtIndex:indexPath.row];
+
+    [cell.ChoosenBtn addTarget:self action:@selector(ChoosenBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.ChoosenBtn.tag = indexPath.row;
     
-    // If there is comment for the option 
+    
+    //NSLog(@"%s !!! - %d", __PRETTY_FUNCTION__, [[[_AnswersArray valueForKey:@"value"] objectAtIndex:indexPath.row] boolValue]);
+    if ([[[_AnswersArray valueForKey:@"value"] objectAtIndex:indexPath.row] boolValue]) {
+        [cell.ChoosenBtn setImage:[UIImage imageNamed:@"approve9.png"] forState:UIControlStateNormal];
+    } else {
+        [cell.ChoosenBtn setImage:[UIImage imageNamed:@"close32.png"] forState:UIControlStateNormal];
+    }
+    
+    
+    // If there is comment for the option
     if ([[[_AnswersArray valueForKey:@"commentEnable"] objectAtIndex:indexPath.row] boolValue]) {
         
         [cell.CommentTextField setHidden:NO];
         [cell.CommentTextField setUserInteractionEnabled:YES];
-        
+
         if ([[[_AnswersArray valueForKey:@"comment"] objectAtIndex:indexPath.row] length] > 3) {
             [cell.CommentLab setHidden:NO];
             
@@ -107,6 +120,47 @@
         return 150.0f;
     }
     return 80.0f;
+}
+
+-(void) ChoosenBtnClicked:(id)sender
+{
+    NSLog(@"ChoosenBtn %d", ((UIButton*) sender).tag);
+    NSInteger index = ((UIButton*) sender).tag;
+
+    // TODO: To handle single selection
+    switch (_CurrentQuestionType) {
+        case QUESTION_TYPE_SINGLE_CHOISE:
+        case QUESTION_TYPE_SINGLE_CHOISE_WITH_COMMENT:
+        {
+            
+            NSMutableDictionary *CurrentAnswer = [[NSMutableDictionary alloc] initWithDictionary:[_AnswersArray objectAtIndex:index]];
+            [CurrentAnswer setValue:[NSNumber numberWithBool:YES] forKey:@"value"]; // Set option as selected
+            [_AnswersArray replaceObjectAtIndex:index withObject:CurrentAnswer];
+            [_AnswersTableView reloadData];
+        }
+            
+            break;
+            
+        case QUESTION_TYPE_MULTI_CHOISE:
+        case QUESTION_TYPE_MULTI_CHOISE_WITH_COMMENT:
+        {
+        
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+    /*
+    
+    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndex:((UIButton*) sender).tag];
+    [_AnswersTableView beginUpdates];
+    [_AnswersTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [_AnswersTableView endUpdates];
+     */
 }
 
 

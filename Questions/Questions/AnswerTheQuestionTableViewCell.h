@@ -20,7 +20,9 @@
 @property (strong, nonatomic) IBOutlet UIView   *QuestionPartView;
 @property (strong, nonatomic) IBOutlet UITableView *AnswersTableView;
 @property (strong, nonatomic) IBOutlet UIButton *ReturnBtn;
-@property (strong, nonatomic) NSArray *AnswersArray;
+@property (strong, nonatomic) NSMutableArray *AnswersArray;
+@property (strong, nonatomic) NSMutableArray *LocalAnswersArray;
+@property QUESTION_TYPE CurrentQuestionType;
 @property NSInteger AnswerCount;
 
 @property (strong, nonatomic) UITextField *AskandAnswerTextField;
