@@ -1,6 +1,12 @@
 {
     "guid": "1234567890",
     "questionarieName":"淡江大學人際關係訪問表",
+    "personalInfo":{
+        "Name":"",
+        "Mobile":"",
+        "Gender":"",
+        "Class":""
+    },
     "questions":[
                  {
                  "type":2,

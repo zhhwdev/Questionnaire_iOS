@@ -9,6 +9,7 @@
 #import "UseViewController.h"
 #import "General.h"
 
+
 @interface UseViewController () {
     NSInteger _CurrentIndex;
 }
@@ -115,16 +116,36 @@
     
     if (indexPath.row >= [_TheQuestionnaire GetQuestionCount]) {
         
-        [cell.QuestionBackView setHidden:YES];
-        [cell.ContentLab setHidden:YES];
-        [cell.QuestionPartView setHidden:YES];
-        [cell.AnswersTableView setHidden:YES];
-        [cell.AskandAnswerTextField setHidden:YES];
-        [cell.AskandAnswerTextLab setHidden:YES];
+        NSString *Identifier = @"PersonalInfoTableViewCell";
+        PersonalInfoTableViewCell  *PersonalInfoCell = [tableView dequeueReusableCellWithIdentifier:Identifier];
         
-        [_ReturnBtn setTitle:@"完成" forState:UIControlStateNormal];
-        [_PrevBtn setHidden:YES];
+        if (PersonalInfoCell == nil)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:Identifier owner:self options:nil];
+            PersonalInfoCell = [nib objectAtIndex:0];
+        }
+        
+        PersonalInfoCell.NameTextField.delegate = self;
+        PersonalInfoCell.PhoneTextField.delegate = self;
+        PersonalInfoCell.MajorTextField.delegate = self;
+        PersonalInfoCell.ClassTextField.delegate = self;
+        PersonalInfoCell.NameTextField.tag = PERSONAL_INFO_NAME_TAG;
+        PersonalInfoCell.PhoneTextField.tag = PERSONAL_INFO_MOBILE_TAG;
+        PersonalInfoCell.MajorTextField.tag = PERSONAL_INFO_MAJOR_TAG;
+        PersonalInfoCell.ClassTextField.tag = PERSONAL_INFO_CLASS_TAG;
+        PersonalInfoCell.NameTextField.keyboardType = UIKeyboardTypeNamePhonePad;
+        PersonalInfoCell.PhoneTextField.keyboardType = UIKeyboardTypePhonePad;
+        PersonalInfoCell.MajorTextField.keyboardType = UIKeyboardTypeNamePhonePad;
+        PersonalInfoCell.ClassTextField.keyboardType = UIKeyboardTypePhonePad;
+        
+        
+        
+        
         [_NextBtn setHidden:YES];
+        [_PrevBtn setHidden:YES];
+        [_ReturnBtn setTitle:@"完成" forState:UIControlStateNormal];
+        return PersonalInfoCell;
+        
         
     } else {
         
@@ -275,4 +296,21 @@
 
 }
 
+#pragma mark - TextField delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField        // return NO to disallow editing.
+{
+    NSLog(@"%s tag = %ld", __PRETTY_FUNCTION__, (long)textField.tag);
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+{
+    NSLog(@"%s tag = %ld", __PRETTY_FUNCTION__, (long)textField.tag);
+}
+
+
+/*
+- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+*/
 @end

@@ -17,6 +17,8 @@
 		10B8CE2B1AE3EE84004B6291 /* ok2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10B8CE2A1AE3EE84004B6291 /* ok2.png */; };
 		10B8CE321AE3F81B004B6291 /* AnswersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B8CE301AE3F81B004B6291 /* AnswersTableViewCell.m */; };
 		10B8CE331AE3F81B004B6291 /* AnswersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10B8CE311AE3F81B004B6291 /* AnswersTableViewCell.xib */; };
+		10C9AFE21AEE281A008C7A08 /* PersonalInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C9AFE01AEE281A008C7A08 /* PersonalInfoTableViewCell.m */; };
+		10C9AFE31AEE281A008C7A08 /* PersonalInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10C9AFE11AEE281A008C7A08 /* PersonalInfoTableViewCell.xib */; };
 		10D633CC1AE4A3B2008B83B7 /* close32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D633CA1AE4A3B2008B83B7 /* close32@2x.png */; };
 		10D633CD1AE4A3B2008B83B7 /* close32@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D633CB1AE4A3B2008B83B7 /* close32@3x.png */; };
 		10D97C121AD7CD720002D04E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D97C111AD7CD720002D04E /* main.m */; };
@@ -32,8 +34,6 @@
 		10DDAC491AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DDAC471AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.xib */; };
 		10DDAC4B1AE2B1DF00E9B5EB /* approve9.png in Resources */ = {isa = PBXBuildFile; fileRef = 10DDAC4A1AE2B1DF00E9B5EB /* approve9.png */; };
 		10DDAC4D1AE2B1E900E9B5EB /* mode.png in Resources */ = {isa = PBXBuildFile; fileRef = 10DDAC4C1AE2B1E900E9B5EB /* mode.png */; };
-		10E6F8DC1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6F8DA1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.m */; };
-		10E6F8DD1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E6F8DB1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.xib */; };
 		10E6F9201AEA5E81008B6176 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6F9151AEA5E81008B6176 /* NSMutableArray+SWUtilityButtons.m */; };
 		10E6F9211AEA5E81008B6176 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6F9171AEA5E81008B6176 /* SWCellScrollView.m */; };
 		10E6F9221AEA5E81008B6176 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E6F9191AEA5E81008B6176 /* SWLongPressGestureRecognizer.m */; };
@@ -90,6 +90,9 @@
 		10B8CE2F1AE3F81B004B6291 /* AnswersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswersTableViewCell.h; sourceTree = "<group>"; };
 		10B8CE301AE3F81B004B6291 /* AnswersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswersTableViewCell.m; sourceTree = "<group>"; };
 		10B8CE311AE3F81B004B6291 /* AnswersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswersTableViewCell.xib; sourceTree = "<group>"; };
+		10C9AFDF1AEE281A008C7A08 /* PersonalInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoTableViewCell.h; sourceTree = "<group>"; };
+		10C9AFE01AEE281A008C7A08 /* PersonalInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoTableViewCell.m; sourceTree = "<group>"; };
+		10C9AFE11AEE281A008C7A08 /* PersonalInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfoTableViewCell.xib; sourceTree = "<group>"; };
 		10D633CA1AE4A3B2008B83B7 /* close32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close32@2x.png"; sourceTree = "<group>"; };
 		10D633CB1AE4A3B2008B83B7 /* close32@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close32@3x.png"; sourceTree = "<group>"; };
 		10D97C0C1AD7CD720002D04E /* Questions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,9 +114,6 @@
 		10DDAC471AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerTheQuestionTableViewCell.xib; sourceTree = "<group>"; };
 		10DDAC4A1AE2B1DF00E9B5EB /* approve9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = approve9.png; sourceTree = "<group>"; };
 		10DDAC4C1AE2B1E900E9B5EB /* mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode.png; sourceTree = "<group>"; };
-		10E6F8D91AEA56ED008B6176 /* AnswerWithCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerWithCommentTableViewCell.h; sourceTree = "<group>"; };
-		10E6F8DA1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerWithCommentTableViewCell.m; sourceTree = "<group>"; };
-		10E6F8DB1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerWithCommentTableViewCell.xib; sourceTree = "<group>"; };
 		10E6F9141AEA5E81008B6176 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		10E6F9151AEA5E81008B6176 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
 		10E6F9161AEA5E81008B6176 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
@@ -262,15 +262,15 @@
 				10F046801AE1EC3B002DAC01 /* Questionnaire.m */,
 				10FC82001ADAD0F900F8B841 /* UseViewController.h */,
 				10FC82011ADAD0F900F8B841 /* UseViewController.m */,
+				10C9AFDF1AEE281A008C7A08 /* PersonalInfoTableViewCell.h */,
+				10C9AFE01AEE281A008C7A08 /* PersonalInfoTableViewCell.m */,
+				10C9AFE11AEE281A008C7A08 /* PersonalInfoTableViewCell.xib */,
 				10DDAC451AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.h */,
 				10DDAC461AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.m */,
 				10DDAC471AE2ABA600E9B5EB /* AnswerTheQuestionTableViewCell.xib */,
 				10B8CE2F1AE3F81B004B6291 /* AnswersTableViewCell.h */,
 				10B8CE301AE3F81B004B6291 /* AnswersTableViewCell.m */,
 				10B8CE311AE3F81B004B6291 /* AnswersTableViewCell.xib */,
-				10E6F8D91AEA56ED008B6176 /* AnswerWithCommentTableViewCell.h */,
-				10E6F8DA1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.m */,
-				10E6F8DB1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.xib */,
 				10B8CE341AE48C4F004B6291 /* Resource */,
 				10D97C0F1AD7CD720002D04E /* Supporting Files */,
 			);
@@ -419,7 +419,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				107B6FB41AEC913300393A72 /* approve9@2x.png in Resources */,
-				10E6F8DD1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.xib in Resources */,
 				10E6F9441AEA9EC0008B6176 /* sheet3_white.png in Resources */,
 				10E6F94C1AEAA771008B6176 /* chart53_white.png in Resources */,
 				10FC81F31AD9913A00F8B841 /* icon-ios7-arrow-forward-128.png in Resources */,
@@ -443,6 +442,7 @@
 				1029B62E1AECB63F006BAC7D /* circular203@2x.png in Resources */,
 				10FC82341ADBCBCF00F8B841 /* download.png in Resources */,
 				10DDAC3D1AE25BB000E9B5EB /* paper.png in Resources */,
+				10C9AFE31AEE281A008C7A08 /* PersonalInfoTableViewCell.xib in Resources */,
 				1029B62D1AECB63F006BAC7D /* circular203@3x.png in Resources */,
 				10D97C201AD7CD720002D04E /* Images.xcassets in Resources */,
 				10D633CC1AE4A3B2008B83B7 /* close32@2x.png in Resources */,
@@ -472,6 +472,7 @@
 			files = (
 				10D97C181AD7CD720002D04E /* Questions.xcdatamodeld in Sources */,
 				10F0467E1AE1DAB6002DAC01 /* JSONFileManager.m in Sources */,
+				10C9AFE21AEE281A008C7A08 /* PersonalInfoTableViewCell.m in Sources */,
 				10B8CE321AE3F81B004B6291 /* AnswersTableViewCell.m in Sources */,
 				10D97C151AD7CD720002D04E /* AppDelegate.m in Sources */,
 				10FC82301ADBAAAC00F8B841 /* MainControlView.m in Sources */,
@@ -481,7 +482,6 @@
 				10FC82261ADBA81F00F8B841 /* TableViewCell.m in Sources */,
 				10E6F9231AEA5E81008B6176 /* SWTableViewCell.m in Sources */,
 				10FC81FF1ADAC69C00F8B841 /* NewQuestionViewController.m in Sources */,
-				10E6F8DC1AEA56ED008B6176 /* AnswerWithCommentTableViewCell.m in Sources */,
 				10E6F9201AEA5E81008B6176 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				10FC81F61AD99BC000F8B841 /* InfoTableViewController.m in Sources */,
 				10E6F9251AEA5E81008B6176 /* SWUtilityButtonView.m in Sources */,

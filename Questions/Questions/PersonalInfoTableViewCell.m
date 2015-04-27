@@ -1,14 +1,14 @@
 //
-//  AnswerWithCommentTableViewCell.m
+//  PersonalInfoTableViewCell.m
 //  Questions
 //
-//  Created by CHIN-KANG CHANG on 4/24/15.
+//  Created by CHIN-KANG CHANG on 4/27/15.
 //  Copyright (c) 2015 HippoColors. All rights reserved.
 //
 
-#import "AnswerWithCommentTableViewCell.h"
+#import "PersonalInfoTableViewCell.h"
 
-@implementation AnswerWithCommentTableViewCell
+@implementation PersonalInfoTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
