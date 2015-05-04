@@ -40,7 +40,7 @@
     [_NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [_NextBtn setTitle:@"下一題" forState:UIControlStateNormal];
     [_NextBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
-    [_NextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_NextBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [_NextBtn.layer setCornerRadius:10.0f];
     [self.view addSubview:_NextBtn];
     
@@ -137,8 +137,6 @@
         PersonalInfoCell.PhoneTextField.keyboardType = UIKeyboardTypePhonePad;
         PersonalInfoCell.MajorTextField.keyboardType = UIKeyboardTypeNamePhonePad;
         PersonalInfoCell.ClassTextField.keyboardType = UIKeyboardTypePhonePad;
-        
-        
         
         
         [_NextBtn setHidden:YES];
@@ -263,6 +261,7 @@
     } else {
         NSIndexPath *Indexpath = [NSIndexPath indexPathForRow:([self GetCurrentCell] + 1) inSection:0];
         [_TableView scrollToRowAtIndexPath:Indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [_NextBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
     
 }
@@ -287,13 +286,15 @@
     [self SetReplyAnswerArrayAfterAnswerWithOptionArray:OptionArray];
 }
 
+#pragma mark - AnswerTheQuestionDelegate
 -(void) SetReplyAnswerArrayAfterAnswerWithOptionArray : (NSArray*) OptionArray
 {
     
     NSMutableDictionary *QuestionObj = [[NSMutableDictionary alloc] initWithDictionary:[_ReplyAnswerArray objectAtIndex:_CurrentIndex]];
     [QuestionObj setValue:OptionArray forKey:@"options"];
     [_ReplyAnswerArray replaceObjectAtIndex:_CurrentIndex withObject:QuestionObj];
-
+    [_NextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - TextField delegate

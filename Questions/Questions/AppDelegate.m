@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "JSONFileManager.h"
+#import <Parse/Parse.h>
 
 
 @interface AppDelegate ()
@@ -18,6 +19,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // [Optional] Power your app with Local Datastore. For more info, go to
+    // https://parse.com/docs/ios_guide#localdatastore/iOS
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"JHKr3wcQYTGwN9XxDRBTQ6nZdrgFv4z7qEuDLwyZ"
+                  clientKey:@"n5cJzQH6wEt26C9G0NEKKWT8De3aT79J5gMqKwey"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    /*
+    for (int i = 0; i < 60; i++) {
+        
+        PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+//        testObject[@"foo"] = @"bar";
+        NSString *testString = [NSString stringWithFormat:@"test : %d", i];
+        testObject[@"foo"] = testString;
+        [testObject saveInBackground];
+        
+    }
+    */
+    
     // Override point for customization after application launch.
     //[self CoreDataTest_newQuestionnaire];
     //[self CoreDataTestFetch];

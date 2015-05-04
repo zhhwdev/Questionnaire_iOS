@@ -10,7 +10,7 @@
 #import "UseViewController.h"
 #import "InfoTableViewController.h"
 #import <CoreData/CoreData.h>
-
+#import <Parse/Parse.h>
 
 #define CONTROLVIEW_HEIGHT 200.0f
 
@@ -175,6 +175,19 @@
     UseViewController* UseVC = [sb instantiateViewControllerWithIdentifier:@"UseViewController"];
     [self presentViewController:UseVC animated:YES completion:nil];
     [_TableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
+     for (int i = 0; i < 60; i++) {
+         NSLog(@"test %d", i);
+     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+     //        testObject[@"foo"] = @"bar";
+     NSString *testString = [NSString stringWithFormat:@"test : %d", i];
+     testObject[@"foo"] = testString;
+     [testObject saveInBackground];
+     
+     }
+    
     
 }
 
