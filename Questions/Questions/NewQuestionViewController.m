@@ -35,18 +35,7 @@
 */
 
 - (IBAction)CompleteBtn:(id)sender {
-    //[self dismissViewControllerAnimated:YES completion:nil];
-    
-    
-    for (int i = 0; i < 60; i++) {
-        NSLog(@"test %d", i);
-        PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-        //        testObject[@"foo"] = @"bar";
-        NSString *testString = [NSString stringWithFormat:@"test : %d", i];
-        testObject[@"foo"] = testString;
-        [testObject saveInBackground];
-        
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 @end
